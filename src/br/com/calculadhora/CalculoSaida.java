@@ -11,7 +11,13 @@ public class CalculoSaida {
 		LocalTime entradaAlmoco = LocalTime.parse(intervalo.getPausas().get(0).getFim());
 		LocalTime p1 = LocalTime.parse(intervalo.getPausas().get(1).getInicio());
 		LocalTime p2 = LocalTime.parse(intervalo.getPausas().get(1).getFim());
+		
+		System.out.println(intervalo.getPausas().get(0).getInicio());
+		System.out.println(intervalo.getPausas().get(1).getInicio());
+		System.out.println(intervalo.getPausas().get(2).getInicio());
+		System.out.println(intervalo.getPausas().get(3).getInicio());
 
+		
 		LocalTime horaFixa = LocalTime.of(8, 48);
 
 		// Calculo das horas de entrada, saída e pausas
