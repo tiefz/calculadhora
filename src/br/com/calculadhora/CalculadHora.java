@@ -30,6 +30,8 @@ public class CalculadHora {
 	    
 		List<Pausa> pausas  = new ArrayList<>();
 		pausas.add(almoco);
+		pausas.add(descanso);
+
 		
 	    while (resposta == 0) {
 	    
