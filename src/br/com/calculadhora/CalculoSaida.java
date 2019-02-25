@@ -19,7 +19,6 @@ public class CalculoSaida {
 		for(int i = 0; i < intervalo.getPausas().size(); i++){
 			
 			p1 = LocalTime.parse(intervalo.getPausas().get(i).getInicio());
-			System.out.println(intervalo.getPausas().get(i).getInicio());
 			p2 = LocalTime.parse(intervalo.getPausas().get(i).getFim());
 			
 			pausaLista = p2.minusHours(p1.getHour()).minusMinutes(p1.getMinute());

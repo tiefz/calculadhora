@@ -50,8 +50,8 @@ public class Tela extends JPanel {
 	private void criarComponentes() {
 		setLayout(null);
 		
-		labelTitulo = new JLabel("Programa Calculadhora", JLabel.CENTER);
-		labelTitulo.setFont(new Font(labelTitulo.getFont().getName(), Font.PLAIN, 20));
+		labelTitulo = new JLabel("Calculadhora", JLabel.CENTER);
+		labelTitulo.setFont(new Font(labelTitulo.getFont().getName(), Font.PLAIN, 28));
 		labelEntrada = new JLabel("Horário de entrada:", JLabel.LEFT);
 		campoEntrada = new JFormattedTextField();
 		campoEntrada.setValue("00:00");
