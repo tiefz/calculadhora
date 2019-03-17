@@ -9,4 +9,6 @@
     <string name="label4">Total de Pausa adicionada</string>
     <string name="saida">Saída</string>
     <string name="retorno">Retorno</string>
+    <string name="botao_limpar">Limpar</string>
+    <string name="limpa_pausa">Botão Limpa Pausa</string>
 </resources>

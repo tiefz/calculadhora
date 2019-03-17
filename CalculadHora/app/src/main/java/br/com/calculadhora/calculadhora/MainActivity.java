@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toolbar;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText pausaRetorno;
     private Button botaoPausa;
     private Button botaoCalc;
+    private Button botaoLimpar;
+    private ImageButton limpaPausa;
     private TextView resultadoPausa;
     private TextView resultadoSaida;
     private Calendar calendar;
@@ -46,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
         botaoCalc = findViewById(R.id.botaoCalcID);
         resultadoPausa = findViewById(R.id.resultadoPausaID);
         resultadoSaida = findViewById(R.id.resultadoSaidaID);
+        limpaPausa = findViewById(R.id.limpaPausaID);
+        botaoLimpar = findViewById(R.id.botaoLimparID);
+        limpaPausa.setVisibility(View.INVISIBLE);
+        botaoLimpar.setVisibility(View.INVISIBLE);
+        horaEntrada.setText(R.string.zerohora);
+        horaSaidaAlmoco.setText(R.string.zerohora);
+        horaRetornoAlmoco.setText(R.string.zerohora);
+        resultadoPausa.setText(R.string.zerohora);
+        resultadoSaida.setText(R.string.zerohora);
+        pausaSaida.setText(R.string.zerohora);
+        pausaRetorno.setText(R.string.zerohora);
 
         botaoPausa.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -174,6 +189,9 @@ public class MainActivity extends AppCompatActivity {
                     resultadoPausa.setText(pausaTotal.toString());
                     pausaSaida.setText(R.string.zerohora);
                     pausaRetorno.setText(R.string.zerohora);
+                    limpaPausa.setVisibility(View.VISIBLE);
+
+
                 }
 
 
@@ -197,6 +215,34 @@ public class MainActivity extends AppCompatActivity {
                 Intervalo resultado = calculosaida.calcularSaida(intervalo);
 
                 resultadoSaida.setText(resultado.getSaida());
+                botaoLimpar.setVisibility(View.VISIBLE);
+                limpaPausa.setVisibility(View.INVISIBLE);
+                botaoPausa.setEnabled(false);
+                botaoCalc.setEnabled(false);
+            }
+        });
+
+        limpaPausa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pausas.clear();
+                resultadoPausa.setText(R.string.zerohora);
+                limpaPausa.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        botaoLimpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pausas.clear();
+                horaEntrada.setText(R.string.zerohora);
+                horaSaidaAlmoco.setText(R.string.zerohora);
+                horaRetornoAlmoco.setText(R.string.zerohora);
+                resultadoPausa.setText(R.string.zerohora);
+                resultadoSaida.setText(R.string.zerohora);
+                botaoLimpar.setVisibility(View.INVISIBLE);
+                botaoPausa.setEnabled(true);
+                botaoCalc.setEnabled(true);
             }
         });
 
