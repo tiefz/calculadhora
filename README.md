@@ -1,2 +1,2 @@
 # calculadhora
-Projeto Java CalculadHora
+Projeto App Android CalculadHora
