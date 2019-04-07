@@ -1,250 +1,132 @@
 package br.com.calculadhora.calculadhora;
 
-import android.app.TimePickerDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.TimePicker;
-import android.widget.Toolbar;
+import android.widget.Toast;
 
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-public class MainActivity extends AppCompatActivity {
-
-    private TimePickerDialog timePickerDialog;
-    private EditText horaEntrada;
-    private EditText horaSaidaAlmoco;
-    private EditText horaRetornoAlmoco;
-    private EditText pausaSaida;
-    private EditText pausaRetorno;
-    private Button botaoPausa;
-    private Button botaoCalc;
-    private Button botaoLimpar;
-    private ImageButton limpaPausa;
-    private TextView resultadoPausa;
-    private TextView resultadoSaida;
-    private Calendar calendar;
-    private int currentHour;
-    private int currentMinute;
-
-    List<Pausa> pausas = new ArrayList<>();
+    private ImageView logoMain;
+    private TextView ultimaHora;
+    private TextView horaAjustada;
+    private Button calcular;
+    private static final String SETTINGS = "Settings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        horaEntrada = findViewById(R.id.horaEntradaID);
-        horaSaidaAlmoco = findViewById(R.id.horaSaidaAlmocoID);
-        horaRetornoAlmoco = findViewById(R.id.horaRetornoAlmocoID);
-        pausaSaida = findViewById(R.id.pausaSaidaID);
-        pausaRetorno = findViewById(R.id.pausaRetornoID);
-        botaoPausa = findViewById(R.id.botaoPausaID);
-        botaoCalc = findViewById(R.id.botaoCalcID);
-        resultadoPausa = findViewById(R.id.resultadoPausaID);
-        resultadoSaida = findViewById(R.id.resultadoSaidaID);
-        limpaPausa = findViewById(R.id.limpaPausaID);
-        botaoLimpar = findViewById(R.id.botaoLimparID);
-        limpaPausa.setVisibility(View.INVISIBLE);
-        botaoLimpar.setVisibility(View.INVISIBLE);
-        horaEntrada.setText(R.string.zerohora);
-        horaSaidaAlmoco.setText(R.string.zerohora);
-        horaRetornoAlmoco.setText(R.string.zerohora);
-        resultadoPausa.setText(R.string.zerohora);
-        resultadoSaida.setText(R.string.zerohora);
-        pausaSaida.setText(R.string.zerohora);
-        pausaRetorno.setText(R.string.zerohora);
 
-        botaoPausa.setOnClickListener(new View.OnClickListener() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        logoMain = findViewById(R.id.logoMainID);
+        logoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resultadoSaida.setText(horaEntrada.getText().toString());
+                startActivity(new Intent(MainActivity.this, TabActivity.class));
             }
         });
 
-        horaEntrada.setOnClickListener(new View.OnClickListener() {
+        ultimaHora = findViewById(R.id.ultimaHoraID);
+        ultimaHora.setText(R.string.zerohora);
+        SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
+        if(sharedPreferences.contains("UltimaHora")) {
+            ultimaHora.setText(sharedPreferences.getString("UltimaHora", "00:00"));
+        }
+        horaAjustada = findViewById(R.id.horaAjustadaID);
+        horaAjustada.setText("08:48");
+        if(sharedPreferences.contains("HoraDeCalculo")) {
+            horaAjustada.setText(sharedPreferences.getString("HoraDeCalculo", "08:48"));
+        }
+        calcular = findViewById(R.id.calcularID);
+        calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        horaEntrada.setText(String.format("%02d:%02d", hourOfDay, minute));
-                    }
-                }, currentHour, currentMinute, true);
-
-                timePickerDialog.show();
+                startActivity(new Intent(MainActivity.this, TabActivity.class));
             }
         });
+    }
 
-        horaSaidaAlmoco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
 
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        horaSaidaAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
-                    }
-                }, currentHour, currentMinute, true);
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-                timePickerDialog.show();
-            }
-        });
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
 
-        horaRetornoAlmoco.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            Intent configIntent = new Intent(this, ConfigActivity.class);
+            startActivity(configIntent);
 
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
+            return true;
+        }
 
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        horaRetornoAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
-                    }
-                }, currentHour, currentMinute, true);
+        return super.onOptionsItemSelected(item);
+    }
 
-                timePickerDialog.show();
-            }
-        });
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
 
-        pausaSaida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        if (id == R.id.nav_calculadHoraID) {
+            Intent configIntent = new Intent(this, TabActivity.class);
+            startActivity(configIntent);
+        } else if (id == R.id.nav_calculaTempoID) {
+            Toast.makeText(MainActivity.this,"Em desenvolvimento, aguarde um pouquinho :)",Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_manage) {
+            Intent configIntent = new Intent(this, ConfigActivity.class);
+            startActivity(configIntent);
+        }
 
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        pausaSaida.setText(String.format("%02d:%02d", hourOfDay, minute));
-                    }
-                }, currentHour, currentMinute, true);
-
-                timePickerDialog.show();
-            }
-        });
-
-        pausaRetorno.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        pausaRetorno.setText(String.format("%02d:%02d", hourOfDay, minute));
-                    }
-                }, currentHour, currentMinute, true);
-
-                timePickerDialog.show();
-            }
-        });
-
-        botaoPausa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intervalo intervalo = new Intervalo();
-                String pausaS = pausaSaida.getText().toString();
-                String pausaR = pausaRetorno.getText().toString();
-                Pausa descanso = new Pausa(pausaS, pausaR);
-                pausas.add(descanso);
-                intervalo.setPausas(pausas);
-
-                LocalTime p1;
-                LocalTime p2;
-                LocalTime pausaLista;
-                LocalTime pausaTotal = LocalTime.of(00, 00);
-                for(int i = 0; i < intervalo.getPausas().size(); i++){
-
-                    p1 = LocalTime.parse(intervalo.getPausas().get(i).getInicio());
-                    p2 = LocalTime.parse(intervalo.getPausas().get(i).getFim());
-
-                    pausaLista = p2.minusHours(p1.getHour()).minusMinutes(p1.getMinute());
-                    pausaTotal = pausaTotal.plusHours(pausaLista.getHour()).plusMinutes(pausaLista.getMinute());
-                    resultadoPausa.setText(pausaTotal.toString());
-                    pausaSaida.setText(R.string.zerohora);
-                    pausaRetorno.setText(R.string.zerohora);
-                    limpaPausa.setVisibility(View.VISIBLE);
-
-
-                }
-
-
-            }
-        });
-
-        botaoCalc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intervalo intervalo = new Intervalo();
-                intervalo.setEntrada(horaEntrada.getText().toString());
-                String almocoS = horaSaidaAlmoco.getText().toString();
-                String almocoR = horaRetornoAlmoco.getText().toString();
-                Pausa almoco = new Pausa(almocoS, almocoR);
-
-                CalculoSaida calculosaida = new CalculoSaida();
-
-                pausas.add(almoco);
-                intervalo.setPausas(pausas);
-                Intervalo resultado = calculosaida.calcularSaida(intervalo);
-
-                resultadoSaida.setText(resultado.getSaida());
-                botaoLimpar.setVisibility(View.VISIBLE);
-                limpaPausa.setVisibility(View.INVISIBLE);
-                botaoPausa.setEnabled(false);
-                botaoCalc.setEnabled(false);
-            }
-        });
-
-        limpaPausa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pausas.clear();
-                resultadoPausa.setText(R.string.zerohora);
-                limpaPausa.setVisibility(View.INVISIBLE);
-            }
-        });
-
-        botaoLimpar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pausas.clear();
-                horaEntrada.setText(R.string.zerohora);
-                horaSaidaAlmoco.setText(R.string.zerohora);
-                horaRetornoAlmoco.setText(R.string.zerohora);
-                resultadoPausa.setText(R.string.zerohora);
-                resultadoSaida.setText(R.string.zerohora);
-                botaoLimpar.setVisibility(View.INVISIBLE);
-                botaoPausa.setEnabled(true);
-                botaoCalc.setEnabled(true);
-            }
-        });
-
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }

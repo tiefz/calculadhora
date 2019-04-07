@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">CalculadHora</string>
-    <string name="label1">Horário de Entrada:</string>
+    <string name="label1">Horário de Entrada</string>
     <string name="label2">Saída para Almoço:</string>
     <string name="label3">Retorno do Almoço:</string>
     <string name="bt1">Adicionar Pausa</string>
@@ -11,4 +11,33 @@
     <string name="retorno">Retorno</string>
     <string name="botao_limpar">Limpar</string>
     <string name="limpa_pausa">Botão Limpa Pausa</string>
+    <string name="title_activity_tab">TabActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_entrada">Entrada</string>
+    <string name="tab_almoco">Lanche</string>
+    <string name="tab_retorno">Retorno</string>
+    <string name="tab_pausa">Pausas</string>
+    <string name="tab_saida">Saída</string>
+    <string name="settings">Ajustes</string>
+    <string name="pausas_extras">Pausas Extras</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="calcular_hora_trabalhada">Calcular Hora Trabalhada</string>
+    <string name="carga_horaria">Carga Horária</string>
+    <string name="horas">Horas</string>
+    <string name="proximo">Próximo</string>
+    <string name="voltar">Voltar</string>
+    <string name="bemvindo">Bem vindo à CalculadHora</string>
+    <string name="calcular">Calcular</string>
 </resources>

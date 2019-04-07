@@ -2,9 +2,9 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574b</color>
-    <color name="colorAccent">#d81b60</color>
+    <color name="colorAccent">#008577</color>
     <color name="bg_cinza">#555555</color>
-    <color name="cor_fonte">#f5f5f5</color>
+    <color name="cor_fonte">#F5F5F5</color>
     <color name="bg_texto">#444444</color>
     <color name="bg_green">#008577</color>
 </resources>
