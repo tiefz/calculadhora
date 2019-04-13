@@ -15,8 +15,11 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.joda.time.LocalTime;
+
 import java.lang.reflect.Type;
-import java.time.LocalTime;
+//import java.time.LocalTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -108,11 +111,11 @@ public class SaidaCalculada extends Fragment {
         }
 
         LocalTime entrada = LocalTime.parse(intervalo.getEntrada());
-        LocalTime p1 = LocalTime.of(00, 00);
-        LocalTime p2 = LocalTime.of(00, 00);
-        LocalTime pausaLista = LocalTime.of(00, 00);
+        LocalTime p1 = LocalTime.parse("00:00");
+        LocalTime p2 = LocalTime.parse("00:00");
+        LocalTime pausaLista = LocalTime.parse("00:00");
 
-        LocalTime somaEntrada = entrada.plusHours(horaFixa.getHour()).plusMinutes(horaFixa.getMinute());
+        LocalTime somaEntrada = entrada.plusHours(horaFixa.getHourOfDay()).plusMinutes(horaFixa.getMinuteOfHour());
 
 
         //Loop para setar as pausas
@@ -121,14 +124,14 @@ public class SaidaCalculada extends Fragment {
             p1 = LocalTime.parse(intervalo.getPausas().get(i).getInicio());
             p2 = LocalTime.parse(intervalo.getPausas().get(i).getFim());
 
-            pausaLista = p2.minusHours(p1.getHour()).minusMinutes(p1.getMinute());
-            somaEntrada = somaEntrada.plusHours(pausaLista.getHour()).plusMinutes(pausaLista.getMinute());
-            pausaLista = LocalTime.of(00, 00);
+            pausaLista = p2.minusHours(p1.getHourOfDay()).minusMinutes(p1.getMinuteOfHour());
+            somaEntrada = somaEntrada.plusHours(pausaLista.getHourOfDay()).plusMinutes(pausaLista.getMinuteOfHour());
+            pausaLista = LocalTime.parse("00:00");
 
         }
 
 
-        intervalo.setSaida(somaEntrada.toString());
+        intervalo.setSaida(somaEntrada.toString("HH:mm"));
 
         return intervalo;
 
