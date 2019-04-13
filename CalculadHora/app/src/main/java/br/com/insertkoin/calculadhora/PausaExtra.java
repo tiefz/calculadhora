@@ -1,4 +1,4 @@
-package br.com.calculadhora.calculadhora;
+package br.com.insertkoin.calculadhora;
 
 
 import android.app.TimePickerDialog;
@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 
 /**
@@ -30,7 +29,6 @@ public class PausaExtra extends Fragment {
     private EditText pausaRetorno;
     private TextView maisPausas;
     private ImageView coffe;
-    private ImageView maisPausasImg;
     private ImageView limparPausas;
     private Button botaoAddPausa;
     private Button proximo;
@@ -90,6 +88,7 @@ public class PausaExtra extends Fragment {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         pausaRetorno.setText(String.format("%02d:%02d", hourOfDay, minute));
+                        botaoAddPausa.setVisibility(View.VISIBLE);
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
@@ -97,6 +96,7 @@ public class PausaExtra extends Fragment {
         });
 
         botaoAddPausa = view.findViewById(R.id.botaoAddPausaID);
+        botaoAddPausa.setVisibility(View.INVISIBLE);
         botaoAddPausa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,30 +110,17 @@ public class PausaExtra extends Fragment {
                 String json = gson.toJson(listaPausas);
                 editor.putString("PausasExtras",json);
                 editor.commit();
-                botaoAddPausa.setEnabled(false);
                 botaoAddPausa.setText("Pausa adicionada");
                 Toast.makeText(getActivity(),"Pausa adicionada ;)",Toast.LENGTH_SHORT).show();
-                maisPausasImg.setVisibility(View.VISIBLE);
-                maisPausas.setVisibility(View.VISIBLE);
-                limparPausas.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-        maisPausasImg = view.findViewById(R.id.maisPausasImgID);
-        maisPausasImg.setVisibility(View.INVISIBLE);
-        maisPausasImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 pausaSaida.setText(R.string.zerohora);
                 pausaRetorno.setText(R.string.zerohora);
-                botaoAddPausa.setEnabled(true);
-                botaoAddPausa.setText(R.string.bt1);
-                maisPausasImg.setVisibility(View.INVISIBLE);
-                maisPausas.setVisibility(View.INVISIBLE);
-                limparPausas.setVisibility(View.INVISIBLE);
+                maisPausas.setVisibility(View.VISIBLE);
+                limparPausas.setVisibility(View.VISIBLE);
+                botaoAddPausa.setVisibility(View.INVISIBLE);
+
             }
         });
+
 
         limparPausas = view.findViewById(R.id.limparPausasID);
         limparPausas.setVisibility(View.INVISIBLE);
@@ -147,8 +134,9 @@ public class PausaExtra extends Fragment {
                 editor.commit();
                 botaoAddPausa.setEnabled(true);
                 botaoAddPausa.setText(R.string.bt1);
+                pausaSaida.setText(R.string.zerohora);
+                pausaRetorno.setText(R.string.zerohora);
                 limparPausas.setVisibility(View.INVISIBLE);
-                maisPausasImg.setVisibility(View.INVISIBLE);
                 maisPausas.setVisibility(View.INVISIBLE);
                 Toast.makeText(getActivity(),"Todas as pausas foram excluídas!",Toast.LENGTH_SHORT).show();
             }

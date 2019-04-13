@@ -1,4 +1,4 @@
-package br.com.calculadhora.calculadhora;
+package br.com.insertkoin.calculadhora;
 
 import org.junit.Test;
 
