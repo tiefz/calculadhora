@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@color/Cinza_300"
     android:padding="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID"
         tools:targetApi="lollipop" />
 
     <TextView
@@ -47,38 +47,50 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Calcule a hora de saída do trabalho ou saiba quantas horas você trabalhou no dia."
+        android:text="@string/display1"
         android:textColor="@color/bg_cinza"
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/logoMainID" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Sua carga horária de trabalho está configurada para: "
-        android:textColor="@color/bg_cinza"
-        app:fontFamily="sans-serif-condensed-medium"
+    <View
+        android:id="@+id/firstDivider"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/Cinza_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView15"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Última hora calculada"
+        android:layout_marginTop="16dp"
+        android:text="@string/display2"
         android:textColor="@color/bg_cinza"
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID" />
+        app:layout_constraintTop_toBottomOf="@+id/calcularID" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:text="@string/saida"
+        android:textColor="@color/bg_cinza"
+        app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toStartOf="@+id/ultimaHoraID"
+        app:layout_constraintTop_toTopOf="@+id/firstDivider" />
 
     <TextView
         android:id="@+id/horaAjustadaID"
@@ -86,23 +98,24 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="TextView"
+        android:text="@string/zerohora"
         android:textColor="@color/bg_cinza"
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/calcularID" />
 
     <ImageView
         android:id="@+id/logoMainID"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginTop="8dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
@@ -112,8 +125,8 @@
         android:id="@+id/ultimaHoraID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:padding="@dimen/fab_margin"
+        android:layout_marginTop="16dp"
+        android:padding="@dimen/nav_header_vertical_spacing"
         android:text="@string/zerohora"
         android:textColor="@color/bg_texto"
         android:textSize="36sp"
@@ -121,5 +134,5 @@
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 </android.support.constraint.ConstraintLayout>

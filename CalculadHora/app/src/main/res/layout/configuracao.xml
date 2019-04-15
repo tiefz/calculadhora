@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
+    android:background="@color/Cinza_300"
     tools:context=".ConfigActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -12,11 +12,11 @@
         android:id="@+id/botaoOKID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="@android:string/VideoView_error_button"
+        android:text="@string/salvar"
         android:textAllCaps="true"
         android:textColor="@color/cor_fonte"
         android:textStyle="bold"
@@ -39,8 +39,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Você pode desativar o calculo de pausa extra se você não faz nenhuma pausa além do almoço."
-        android:textColor="@color/cor_fonte"
+        android:text="@string/display4"
+        android:textColor="@color/bg_cinza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horaDeCalculoID" />
@@ -60,7 +60,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/settings"
-        android:textColor="@color/cor_fonte"
+        android:textColor="@color/bg_cinza"
         android:textSize="24sp"
         app:fontFamily="sans-serif-black"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,8 +81,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Ajuste abaixo a quantidade de horas que você trabalha por dia (Sem contar o tempo de almoço)."
-        android:textColor="@color/cor_fonte"
+        android:text="@string/display3"
+        android:textColor="@color/bg_cinza"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -109,7 +109,7 @@
     <Switch
         android:id="@+id/ativaPausaID"
         android:layout_width="wrap_content"
-        android:layout_height="81dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textView11"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -122,7 +122,7 @@
         android:layout_marginRight="8dp"
         android:checked="true"
         android:text="@string/pausas_extras"
-        android:textColor="@color/cor_fonte"
+        android:textColor="@color/bg_cinza"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -152,7 +152,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:text="@string/carga_horaria"
-        android:textColor="@color/cor_fonte"
+        android:textColor="@color/bg_cinza"
         app:layout_constraintEnd_toStartOf="@+id/horaDeCalculoID"
         app:layout_constraintTop_toBottomOf="@+id/seekBarID" />
 
@@ -164,7 +164,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:text="@string/horas"
-        android:textColor="@color/cor_fonte"
+        android:textColor="@color/bg_cinza"
         app:layout_constraintStart_toEndOf="@+id/horaDeCalculoID"
         app:layout_constraintTop_toBottomOf="@+id/seekBarID" />
 

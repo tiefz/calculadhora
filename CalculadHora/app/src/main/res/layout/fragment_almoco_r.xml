@@ -7,42 +7,6 @@
     android:background="@color/bg_cinza"
     tools:context=".AlmocoR">
 
-    <Button
-        android:id="@+id/proximoID3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/proximo"
-        android:textAllCaps="true"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horaRetornoAlmocoID"
-        tools:targetApi="lollipop" />
-
-    <Button
-        android:id="@+id/voltarID2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="200dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/voltar"
-        android:textAllCaps="true"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horaRetornoAlmocoID"
-        tools:targetApi="lollipop" />
-
     <EditText
         android:id="@+id/horaRetornoAlmocoID"
         android:layout_width="wrap_content"
