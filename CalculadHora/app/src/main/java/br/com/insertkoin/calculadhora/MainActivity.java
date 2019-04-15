@@ -1,12 +1,15 @@
 package br.com.insertkoin.calculadhora;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     private TextView ultimaHora;
     private TextView horaAjustada;
     private Button calcular;
+    private AlertDialog.Builder dialog;
     private static final String SETTINGS = "Settings";
 
     @Override
@@ -32,7 +36,6 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -66,9 +69,45 @@ public class MainActivity extends AppCompatActivity
         calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TabActivity.class));
+                SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                if (!sharedPreferences.getBoolean("primeiroacesso", false)) {
+                    dialog = new AlertDialog.Builder(MainActivity.this);
+                    dialog.setTitle("Configuração de Pausas Extras");
+                    dialog.setMessage("Você costuma fazer pausas além do almoço?");
+                    dialog.setCancelable(false);
+                    dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Não faz pausas extras
+                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean("AtivaPausa", false);
+                            editor.commit();
+                            startActivity(new Intent(MainActivity.this, TabActivity.class));
+                        }
+                    });
+                    dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Faz pausas extras
+                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean("AtivaPausa", true);
+                            editor.commit();
+                            startActivity(new Intent(MainActivity.this, TabActivity.class));
+                        }
+                    });
+                    dialog.create();
+                    dialog.show();
+                    editor.putBoolean("primeiroacesso", true);
+                    editor.commit();
+                }else {
+                    startActivity(new Intent(MainActivity.this, TabActivity.class));
+                }
             }
         });
+
     }
 
     @Override

@@ -32,7 +32,6 @@ public class PausaExtra extends Fragment {
     private ImageView limparPausas;
     private Button botaoAddPausa;
     private Button proximo;
-    private Button voltar;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -160,14 +159,6 @@ public class PausaExtra extends Fragment {
             }
         });
 
-        voltar = view.findViewById(R.id.voltarID3);
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(2, true);
-
-            }
-        });
 
         return view;
     }

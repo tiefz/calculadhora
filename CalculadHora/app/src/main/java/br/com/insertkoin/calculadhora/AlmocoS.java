@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -24,8 +25,6 @@ public class AlmocoS extends Fragment {
 
     private EditText horaSaidaAlmoco;
     private ImageView imageViewSaidaAlmoco;
-    private Button proximo;
-    private Button voltar;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -60,7 +59,7 @@ public class AlmocoS extends Fragment {
                         horaSaidaAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
                         editor.putString("AlmocoS",String.format("%02d:%02d", hourOfDay, minute));
                         editor.commit();
-                        //proximo.setVisibility(View.VISIBLE);
+                        ((TabActivity)getActivity()).setCurrentItem(2, true);
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
@@ -75,24 +74,6 @@ public class AlmocoS extends Fragment {
             }
         });
 
-        proximo = view.findViewById(R.id.proximoID2);
-        //proximo.setVisibility(View.INVISIBLE);
-        proximo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(2, true);
-
-            }
-        });
-
-        voltar = view.findViewById(R.id.voltarID);
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(0, true);
-
-            }
-        });
 
         return view;
     }

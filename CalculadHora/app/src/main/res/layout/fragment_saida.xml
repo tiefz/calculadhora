@@ -53,7 +53,7 @@
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/buttons_red"
@@ -64,86 +64,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/botaoCalcID" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/label1"
-        android:textColor="@color/cor_fonte"
-        app:layout_constraintBaseline_toBaselineOf="@+id/resumoEntradaID"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/resumoEntradaID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/zerohora"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/resumoAlmocoSID"
-        app:layout_constraintStart_toEndOf="@+id/textView16" />
-
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/label2"
-        android:textColor="@color/cor_fonte"
-        app:layout_constraintBaseline_toBaselineOf="@+id/resumoAlmocoSID"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/resumoAlmocoSID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/zerohora"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/resumoAlmocoRID"
-        app:layout_constraintStart_toStartOf="@+id/resumoEntradaID" />
-
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/label2"
-        android:textColor="@color/cor_fonte"
-        app:layout_constraintBaseline_toBaselineOf="@+id/resumoAlmocoRID"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/resumoAlmocoRID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:background="@color/bg_texto"
-        android:padding="@dimen/appbar_padding_top"
-        android:text="@string/zerohora"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/resultadoSaidaID"
-        app:layout_constraintStart_toStartOf="@+id/resumoAlmocoSID" />
+        app:layout_constraintTop_toBottomOf="@+id/resultadoSaidaID" />
 
 </android.support.constraint.ConstraintLayout>

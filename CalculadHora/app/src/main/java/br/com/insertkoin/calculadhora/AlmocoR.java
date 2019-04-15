@@ -8,9 +8,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -24,8 +24,6 @@ public class AlmocoR extends Fragment {
 
     private EditText horaRetornoAlmoco;
     private ImageView imageViewRetornoAlmoco;
-    private Button proximo;
-    private Button voltar;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -61,7 +59,7 @@ public class AlmocoR extends Fragment {
                         horaRetornoAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
                         editor.putString("AlmocoR",String.format("%02d:%02d", hourOfDay, minute));
                         editor.commit();
-                        //proximo.setVisibility(View.VISIBLE);
+                        ((TabActivity)getActivity()).setCurrentItem(3, true);
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
@@ -73,25 +71,6 @@ public class AlmocoR extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(),"Escolha a hora em que você voltou do almoço",Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        proximo = view.findViewById(R.id.proximoID3);
-        //proximo.setVisibility(View.INVISIBLE);
-        proximo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(3, true);
-
-            }
-        });
-
-        voltar = view.findViewById(R.id.voltarID2);
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(1, true);
-
             }
         });
 

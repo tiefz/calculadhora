@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TimePicker;
@@ -25,7 +24,6 @@ public class Entrada extends Fragment {
 
     private EditText horaEntrada;
     private ImageView imageViewEntrada;
-    private Button proximo;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -62,7 +60,7 @@ public class Entrada extends Fragment {
                         horaEntrada.setText(String.format("%02d:%02d", hourOfDay, minute));
                         editor.putString("Entrada",String.format("%02d:%02d", hourOfDay, minute));
                         editor.commit();
-                        //proximo.setVisibility(View.VISIBLE);
+                        ((TabActivity)getActivity()).setCurrentItem(1, true);
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
@@ -77,15 +75,6 @@ public class Entrada extends Fragment {
             }
         });
 
-        proximo = view.findViewById(R.id.proximoID);
-        //proximo.setVisibility(View.INVISIBLE);
-        proximo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(1, true);
-
-            }
-        });
 
         return view;
 
