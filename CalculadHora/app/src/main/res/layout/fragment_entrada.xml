@@ -9,24 +9,6 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <Button
-        android:id="@+id/proximoID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/proximo"
-        android:textAllCaps="true"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horaEntradaID"
-        tools:targetApi="lollipop" />
-
     <EditText
         android:id="@+id/horaEntradaID"
         android:layout_width="wrap_content"
