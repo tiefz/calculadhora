@@ -6,7 +6,7 @@ android {
         applicationId "br.com.insertkoin.calculadhora"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 2
+        versionCode 3
         versionName "1.1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
