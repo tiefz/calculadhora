@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/Vers%C3%A3o-1.1.2-brightgreen.svg)
 # Calculadhora
 ### Projeto App Android CalculadHora
 Use  a CalculadHora para saber exatamente a hora em que você precisa sair do trabalho naqueles dias em que você entrou alguns minutos mais tarde, fez algumas pausas a mais no trabalho pra um cafezinho extra e tirou menos tempo de almoço que o de costume.
