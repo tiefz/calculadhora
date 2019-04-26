@@ -3,6 +3,7 @@ package br.com.insertkoin.calculadhora;
 
 import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,7 +16,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import com.google.gson.Gson;
 import android.widget.Toast;
-
+import org.joda.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -37,6 +38,8 @@ public class PausaExtra extends Fragment {
     private Calendar calendar;
     private int currentHour;
     private int currentMinute;
+    private LocalTime validaHoraAnterior;
+    private LocalTime validaHoraAtual;
     ArrayList<Pausa> listaPausas = new ArrayList<>();
 
 
@@ -69,6 +72,7 @@ public class PausaExtra extends Fragment {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
 
                         pausaSaida.setText(String.format("%02d:%02d", hourOfDay, minute));
+                        validaHoraAnterior = LocalTime.parse(pausaSaida.getText().toString());
 
                     }
                 }, currentHour, currentMinute, true);
@@ -87,7 +91,14 @@ public class PausaExtra extends Fragment {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         pausaRetorno.setText(String.format("%02d:%02d", hourOfDay, minute));
-                        botaoAddPausa.setVisibility(View.VISIBLE);
+                        validaHoraAtual = LocalTime.parse(pausaRetorno.getText().toString());
+                        if(validaHoraAnterior.isAfter(validaHoraAtual)){
+                            pausaRetorno.setTextColor(Color.RED);
+                            Toast.makeText(getActivity(),"A volta da pausa não pode ser menor que a saída",Toast.LENGTH_LONG).show();
+                        }else {
+                            pausaRetorno.setTextColor(Color.parseColor("#FFF5F5F5"));
+                            botaoAddPausa.setVisibility(View.VISIBLE);
+                        }
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();

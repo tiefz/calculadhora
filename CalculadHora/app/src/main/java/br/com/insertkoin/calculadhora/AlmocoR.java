@@ -3,6 +3,7 @@ package br.com.insertkoin.calculadhora;
 
 import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,6 +15,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.joda.time.LocalTime;
+
 import java.util.Calendar;
 
 
@@ -23,12 +26,15 @@ import java.util.Calendar;
 public class AlmocoR extends Fragment {
 
     private EditText horaRetornoAlmoco;
+    private TextView atencao;
     private ImageView imageViewRetornoAlmoco;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
     private int currentHour;
     private int currentMinute;
+    private LocalTime validaHoraAnterior;
+    private LocalTime validaHoraAtual;
 
 
     public AlmocoR() {
@@ -43,6 +49,8 @@ public class AlmocoR extends Fragment {
         View view = inflater.inflate(R.layout.fragment_almoco_r, container, false);
 
         horaRetornoAlmoco = view.findViewById(R.id.horaRetornoAlmocoID);
+        atencao = view.findViewById(R.id.atencaoID2);
+        atencao.setVisibility(View.INVISIBLE);
 
         horaRetornoAlmoco.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,10 +64,25 @@ public class AlmocoR extends Fragment {
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        horaRetornoAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
-                        editor.putString("AlmocoR",String.format("%02d:%02d", hourOfDay, minute));
-                        editor.commit();
-                        ((TabActivity)getActivity()).setCurrentItem(3, true);
+                        if(sharedPreferences.contains("AlmocoS")){
+                            horaRetornoAlmoco.setText(String.format("%02d:%02d", hourOfDay, minute));
+                            validaHoraAnterior = LocalTime.parse(sharedPreferences.getString("AlmocoS", "00:00"));
+                            validaHoraAtual = LocalTime.parse(horaRetornoAlmoco.getText().toString());
+                            if(validaHoraAnterior.isAfter(validaHoraAtual)){
+                                atencao.setVisibility(View.VISIBLE);
+                                horaRetornoAlmoco.setTextColor(Color.RED);
+                                Toast.makeText(getActivity(),"A hora da volta do almoço não pode ser antes da hora da saída!",Toast.LENGTH_LONG).show();
+                            }else{
+                                editor.putString("AlmocoR",String.format("%02d:%02d", hourOfDay, minute));
+                                editor.commit();
+                                atencao.setVisibility(View.INVISIBLE);
+                                horaRetornoAlmoco.setTextColor(Color.parseColor("#FFF5F5F5"));
+                                ((TabActivity)getActivity()).setCurrentItem(3, true);
+                            }
+                        }else {
+                            Toast.makeText(getActivity(),"Você precisa definir um horário de almoço antes!",Toast.LENGTH_LONG).show();
+                            ((TabActivity)getActivity()).setCurrentItem(1, true);
+                        }
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
