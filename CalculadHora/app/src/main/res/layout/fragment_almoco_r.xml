@@ -7,6 +7,19 @@
     android:background="@color/bg_cinza"
     tools:context=".AlmocoR">
 
+    <TextView
+        android:id="@+id/atencaoID2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/atencao"
+        android:textColor="@color/vermelho"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horaRetornoAlmocoID" />
+
     <EditText
         android:id="@+id/horaRetornoAlmocoID"
         android:layout_width="wrap_content"

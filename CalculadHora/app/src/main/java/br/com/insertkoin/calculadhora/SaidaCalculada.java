@@ -11,17 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import org.joda.time.LocalTime;
-
 import java.lang.reflect.Type;
-//import java.time.LocalTime;
-
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -56,27 +50,41 @@ public class SaidaCalculada extends Fragment {
                 Intervalo intervalo = new Intervalo();
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                intervalo.setEntrada(sharedPreferences.getString("Entrada", "00:00"));
-                String almocoS = sharedPreferences.getString("AlmocoS", "00:00");
-                String almocoR = sharedPreferences.getString("AlmocoR", "00:00");
-                Pausa almoco = new Pausa(almocoS, almocoR);
 
-                if(sharedPreferences.contains("PausasExtras")){
-                    Gson gson = new Gson();
-                    String json = sharedPreferences.getString("PausasExtras", null);
-                    Type type = new TypeToken<ArrayList<Pausa>>() {}.getType();
-                    listaPausas = gson.fromJson(json, type);
+                if(!sharedPreferences.contains("AlmocoR")) {
+                    Toast.makeText(getActivity(),"Você precisa definir os horários antes de calcular a saída!",Toast.LENGTH_LONG).show();
+                    ((TabActivity)getActivity()).setCurrentItem(0, true);
+                }else{
+                    intervalo.setEntrada(sharedPreferences.getString("Entrada", "00:00"));
+                    String almocoS = sharedPreferences.getString("AlmocoS", "00:00");
+                    String almocoR = sharedPreferences.getString("AlmocoR", "00:00");
+                    Pausa almoco = new Pausa(almocoS, almocoR);
+
+                    if(sharedPreferences.contains("PausasExtras")){
+                        Gson gson = new Gson();
+                        String json = sharedPreferences.getString("PausasExtras", null);
+                        Type type = new TypeToken<ArrayList<Pausa>>() {}.getType();
+                        listaPausas = gson.fromJson(json, type);
+                    }
+
+                    listaPausas.add(almoco);
+                    intervalo.setPausas(listaPausas);
+                    Intervalo resultado = calcularSaida(intervalo);
+
+                    resultadoSaida.setText(resultado.getSaida());
+                    editor.putString("UltimaHora",resultado.getSaida());
+                    editor.commit();
+                    botaoLimpar.setVisibility(View.VISIBLE);
+                    botaoCalc.setVisibility(View.INVISIBLE);
+                    listaPausas.clear();
+                    editor.remove("Entrada");
+                    editor.remove("AlmocoS");
+                    editor.remove("AlmocoR");
+                    editor.remove("PausasExtras");
+                    editor.commit();
                 }
 
-                listaPausas.add(almoco);
-                intervalo.setPausas(listaPausas);
-                Intervalo resultado = calcularSaida(intervalo);
 
-                resultadoSaida.setText(resultado.getSaida());
-                editor.putString("UltimaHora",resultado.getSaida());
-                editor.commit();
-                botaoLimpar.setVisibility(View.VISIBLE);
-                botaoCalc.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -85,11 +93,6 @@ public class SaidaCalculada extends Fragment {
         botaoLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                listaPausas.clear();
-                editor.remove("PausasExtras");
-                editor.commit();
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
