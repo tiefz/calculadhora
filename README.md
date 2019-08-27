@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Vers%C3%A3o-1.1.3-brightgreen.svg)
+![](https://img.shields.io/badge/Vers%C3%A3o-1.1.4-brightgreen.svg)
 # Calculadhora
 ### Projeto App Android CalculadHora
 Use  a CalculadHora para saber exatamente a hora em que você precisa sair do trabalho naqueles dias em que você entrou alguns minutos mais tarde, fez algumas pausas a mais no trabalho pra um cafezinho extra e tirou menos tempo de almoço que o de costume.
@@ -9,6 +9,9 @@ Em breve novas funcionalidades como: Calculo de hora trabalhada no dia e no mês
 ![](https://github.com/tiefz/calculadhora/blob/master/samples/calculadhora-logo128.png)
 
 ### Lançamentos:
+
+#### Versão 1.1.4
+- Implementação do botão para criar alames após o calculo do horário de saída. 
 
 #### Versão 1.1.3
 - Implementação de um validador de tempo para corrigir problemas relacionados à incluir um horario menor que o anterior ou não selecionar o horário anterior. 
