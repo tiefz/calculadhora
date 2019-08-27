@@ -114,9 +114,18 @@ public class SaidaCalculada extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         //Cria alarme.
+
+
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+                        String horaAlarmeString =sharedPreferences.getString("UltimaHora", "00:00");
+                        String[] parts = horaAlarmeString.split(":");
+                        int partHora = Integer.parseInt(parts[0]);
+                        int partMinuto = Integer.parseInt(parts[1]);
+
+
                         Intent openNewAlarm = new Intent(AlarmClock.ACTION_SET_ALARM);
-                        openNewAlarm.putExtra(AlarmClock.EXTRA_HOUR, 18);
-                        openNewAlarm.putExtra(AlarmClock.EXTRA_MINUTES, 0);
+                        openNewAlarm.putExtra(AlarmClock.EXTRA_HOUR, partHora);
+                        openNewAlarm.putExtra(AlarmClock.EXTRA_MINUTES, partMinuto);
                         startActivity(openNewAlarm);
                     }
                 });
