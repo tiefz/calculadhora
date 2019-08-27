@@ -1,14 +1,18 @@
 package br.com.insertkoin.calculadhora;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.gson.Gson;
@@ -25,8 +29,9 @@ public class SaidaCalculada extends Fragment {
 
     private TextView resultadoSaida;
     private Button botaoCalc;
-    private Button botaoLimpar;
+    private ImageButton alarme;
     private static final String SETTINGS = "Settings";
+    private AlertDialog.Builder dialog;
     ArrayList<Pausa> listaPausas = new ArrayList<>();
 
 
@@ -74,7 +79,7 @@ public class SaidaCalculada extends Fragment {
                     resultadoSaida.setText(resultado.getSaida());
                     editor.putString("UltimaHora",resultado.getSaida());
                     editor.commit();
-                    botaoLimpar.setVisibility(View.VISIBLE);
+                    alarme.setVisibility(View.VISIBLE);
                     botaoCalc.setVisibility(View.INVISIBLE);
                     listaPausas.clear();
                     editor.remove("Entrada");
@@ -88,13 +93,44 @@ public class SaidaCalculada extends Fragment {
             }
         });
 
-        botaoLimpar = view.findViewById(R.id.botaoLimparID);
-        botaoLimpar.setVisibility(View.INVISIBLE);
-        botaoLimpar.setOnClickListener(new View.OnClickListener() {
+        alarme = view.findViewById(R.id.alarmeID);
+        alarme.setVisibility(View.INVISIBLE);
+        alarme.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                startActivity(intent);
+                dialog = new AlertDialog.Builder(getActivity());
+                dialog.setTitle("Ajustar alarme");
+                dialog.setMessage("Criar um alarme com o horário de saída?");
+                dialog.setCancelable(false);
+                dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Não quer alarme
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //Cria alarme.
+
+
+                        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+                        String horaAlarmeString =sharedPreferences.getString("UltimaHora", "00:00");
+                        String[] parts = horaAlarmeString.split(":");
+                        int partHora = Integer.parseInt(parts[0]);
+                        int partMinuto = Integer.parseInt(parts[1]);
+
+
+                        Intent openNewAlarm = new Intent(AlarmClock.ACTION_SET_ALARM);
+                        openNewAlarm.putExtra(AlarmClock.EXTRA_HOUR, partHora);
+                        openNewAlarm.putExtra(AlarmClock.EXTRA_MINUTES, partMinuto);
+                        startActivity(openNewAlarm);
+                    }
+                });
+                dialog.create();
+                dialog.show();
             }
         });
 
