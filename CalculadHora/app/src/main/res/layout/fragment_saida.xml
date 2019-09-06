@@ -9,32 +9,11 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <ImageButton
-        android:id="@+id/alarmeID"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:contentDescription="@string/alarme"
-        android:padding="@dimen/appbar_padding_top"
-        android:scaleType="fitCenter"
-        android:src="@drawable/alarme"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultadoSaidaID"
-        tools:targetApi="lollipop" />
-
     <Button
         android:id="@+id/botaoCalcID"
         android:layout_width="275dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
         android:text="@string/btcalc"
@@ -50,7 +29,6 @@
         android:id="@+id/resultadoSaidaID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="312dp"
         android:autofillHints=""
         android:background="@color/bg_texto"
         android:ems="10"
@@ -60,8 +38,116 @@
         android:textAlignment="center"
         android:textColor="@color/cor_fonte"
         android:textSize="@dimen/caixa_hora"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="o" />
+
+    <ImageButton
+        android:id="@+id/alarmeID"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="@color/bg_green"
+        android:contentDescription="@string/alarme"
+        android:padding="@dimen/appbar_padding_top"
+        android:scaleType="fitCenter"
+        android:src="@drawable/alarme"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        tools:targetApi="lollipop" />
+
+    <TextView
+        android:id="@+id/resumoAlmocoR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/zerohora"
+        android:textColor="@color/cor_fonte"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/resultadoSaidaID"
+        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/resumoAlmocoS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/zerohora"
+        android:textColor="@color/cor_fonte"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/resumoAlmocoR"
+        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/label2"
+        android:textColor="@color/cor_fonte"
+        app:layout_constraintBottom_toTopOf="@+id/textView18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/resumoEntrada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/zerohora"
+        android:textColor="@color/cor_fonte"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/resumoAlmocoS"
+        app:layout_constraintStart_toStartOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/label1"
+        android:textColor="@color/cor_fonte"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="@string/label3"
+        android:textColor="@color/cor_fonte"
+        app:layout_constraintBottom_toTopOf="@+id/resultadoSaidaID"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </android.support.constraint.ConstraintLayout>

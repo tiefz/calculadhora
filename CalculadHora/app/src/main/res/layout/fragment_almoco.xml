@@ -11,7 +11,6 @@
         android:id="@+id/horaRetornoAlmocoID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="312dp"
         android:autofillHints=""
         android:background="@color/bg_texto"
         android:ems="10"
@@ -21,39 +20,34 @@
         android:textAlignment="center"
         android:textColor="@color/cor_fonte"
         android:textSize="@dimen/caixa_hora"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="o" />
+
+    <ImageView
+        android:id="@+id/imageViewSaidaAlmocoID"
+        android:layout_width="@dimen/tamanho_imagem"
+        android:layout_height="@dimen/tamanho_imagem"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/label2"
+        android:src="@drawable/dinner_out"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/atencaoID" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/label2"
         android:textColor="@color/cor_fonte"
         android:textSize="@dimen/titulo_hora"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/horaRetornoAlmocoID"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewSaidaAlmocoID"
-        android:layout_width="@dimen/tamanho_imagem"
-        android:layout_height="@dimen/tamanho_imagem"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:contentDescription="@string/label2"
-        android:src="@drawable/dinner_out"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horaRetornoAlmocoID" />
 
     <TextView
         android:id="@+id/atencaoID"
@@ -64,8 +58,14 @@
         android:textColor="@color/vermelho"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/horaRetornoAlmocoID" />
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
 </android.support.constraint.ConstraintLayout>
