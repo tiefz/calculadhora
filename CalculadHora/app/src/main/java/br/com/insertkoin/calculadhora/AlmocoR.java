@@ -20,9 +20,6 @@ import org.joda.time.LocalTime;
 import java.util.Calendar;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class AlmocoR extends Fragment {
 
     private EditText horaRetornoAlmoco;

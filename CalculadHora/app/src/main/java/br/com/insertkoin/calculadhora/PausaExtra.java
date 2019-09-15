@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class PausaExtra extends Fragment {
 
     private EditText pausaSaida;

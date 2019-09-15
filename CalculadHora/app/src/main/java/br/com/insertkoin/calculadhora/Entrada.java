@@ -15,10 +15,6 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Entrada extends Fragment {
 
     private EditText horaEntrada;
