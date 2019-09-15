@@ -28,6 +28,9 @@ import java.util.ArrayList;
 public class SaidaCalculada extends Fragment {
 
     private TextView resultadoSaida;
+    private TextView resumoEntrada;
+    private TextView resumoAlmocoS;
+    private TextView resumoAlmocoR;
     private Button botaoCalc;
     private ImageButton alarme;
     private static final String SETTINGS = "Settings";
@@ -48,6 +51,10 @@ public class SaidaCalculada extends Fragment {
         View view = inflater.inflate(R.layout.fragment_saida, container, false);
 
         resultadoSaida = view.findViewById(R.id.resultadoSaidaID);
+        resumoEntrada = view.findViewById(R.id.resumoEntrada);
+        resumoAlmocoS = view.findViewById(R.id.resumoAlmocoS);
+        resumoAlmocoR = view.findViewById(R.id.resumoAlmocoR);
+
         botaoCalc = view.findViewById(R.id.botaoCalcID);
         botaoCalc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,7 +124,7 @@ public class SaidaCalculada extends Fragment {
 
 
                         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
-                        String horaAlarmeString =sharedPreferences.getString("UltimaHora", "00:00");
+                        String horaAlarmeString = sharedPreferences.getString("UltimaHora", "00:00");
                         String[] parts = horaAlarmeString.split(":");
                         int partHora = Integer.parseInt(parts[0]);
                         int partMinuto = Integer.parseInt(parts[1]);
@@ -175,5 +182,18 @@ public class SaidaCalculada extends Fragment {
         return intervalo;
 
     }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser)
+        {
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+            resumoEntrada.setText(sharedPreferences.getString("Entrada", "00:00"));
+            resumoAlmocoS.setText(sharedPreferences.getString("AlmocoS", "00:00"));
+            resumoAlmocoR.setText(sharedPreferences.getString("AlmocoR", "00:00"));
+        }
+    }
+
 
 }
