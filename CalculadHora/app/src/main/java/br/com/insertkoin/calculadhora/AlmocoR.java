@@ -49,6 +49,11 @@ public class AlmocoR extends Fragment {
         View view = inflater.inflate(R.layout.fragment_almoco_r, container, false);
 
         horaRetornoAlmoco = view.findViewById(R.id.horaRetornoAlmocoID);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+        if(sharedPreferences.contains("AlmocoR")){
+            horaRetornoAlmoco.setText(sharedPreferences.getString("AlmocoR", "00:00"));
+        }
+
         atencao = view.findViewById(R.id.atencaoID2);
         atencao.setVisibility(View.INVISIBLE);
 

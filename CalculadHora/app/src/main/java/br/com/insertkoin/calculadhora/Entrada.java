@@ -43,6 +43,10 @@ public class Entrada extends Fragment {
         View view = inflater.inflate(R.layout.fragment_entrada, container, false);
 
         horaEntrada = view.findViewById(R.id.horaEntradaID);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+        if(sharedPreferences.contains("Entrada")){
+            horaEntrada.setText(sharedPreferences.getString("Entrada", "00:00"));
+        }
 
         horaEntrada.setOnClickListener(new View.OnClickListener() {
             @Override

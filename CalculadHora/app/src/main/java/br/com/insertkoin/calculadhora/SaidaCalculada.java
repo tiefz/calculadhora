@@ -184,11 +184,16 @@ public class SaidaCalculada extends Fragment {
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
-        resumoEntrada.setText(sharedPreferences.getString("Entrada", "00:00"));
-        resumoAlmocoS.setText(sharedPreferences.getString("AlmocoS", "00:00"));
-        resumoAlmocoR.setText(sharedPreferences.getString("AlmocoR", "00:00"));
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if(isVisibleToUser)
+        {
+            SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+            resumoEntrada.setText(sharedPreferences.getString("Entrada", "00:00"));
+            resumoAlmocoS.setText(sharedPreferences.getString("AlmocoS", "00:00"));
+            resumoAlmocoR.setText(sharedPreferences.getString("AlmocoR", "00:00"));
+        }
     }
+
+
 }
