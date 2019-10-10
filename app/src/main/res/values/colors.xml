@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#004d40</color>
+    <color name="colorAccent">#00897b</color>
+    <color name="bg_cinza">#616161</color>
+    <color name="cor_fonte">#F5F5F5</color>
+    <color name="bg_texto">#424242</color>
+    <color name="bg_green">#00897b</color>
+    <color name="Cinza_500">#9E9E9E</color>
+    <color name="Cinza_300">#EEEEEE</color>
+    <color name="vermelho">#F44336</color>
+</resources>
