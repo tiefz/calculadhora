@@ -38,6 +38,12 @@
             android:label="@string/title_activity_tab"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="br.com.insertkoin.calculadhora.TabActivity2"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_tab"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

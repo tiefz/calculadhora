@@ -112,7 +112,6 @@ public class SaidaCalculada extends Fragment {
                 dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Não quer alarme
                         Intent intent = new Intent(getActivity(), MainActivity.class);
                         startActivity(intent);
                     }
@@ -120,8 +119,6 @@ public class SaidaCalculada extends Fragment {
                 dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //Cria alarme.
-
 
                         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
                         String horaAlarmeString = sharedPreferences.getString("UltimaHora", "00:00");
@@ -164,7 +161,6 @@ public class SaidaCalculada extends Fragment {
         LocalTime somaEntrada = entrada.plusHours(horaFixa.getHourOfDay()).plusMinutes(horaFixa.getMinuteOfHour());
 
 
-        //Loop para setar as pausas
         for(int i = 0; i < intervalo.getPausas().size(); i++){
 
             p1 = LocalTime.parse(intervalo.getPausas().get(i).getInicio());

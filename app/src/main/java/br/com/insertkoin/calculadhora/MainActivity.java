@@ -155,7 +155,8 @@ public class MainActivity extends AppCompatActivity
             Intent configIntent = new Intent(this, TabActivity.class);
             startActivity(configIntent);
         } else if (id == R.id.nav_calculaTempoID) {
-            Toast.makeText(MainActivity.this,"Em desenvolvimento, aguarde um pouquinho :)",Toast.LENGTH_SHORT).show();
+            Intent configIntent = new Intent(this, TabActivity2.class);
+            startActivity(configIntent);
         } else if (id == R.id.nav_manage) {
             Intent configIntent = new Intent(this, ConfigActivity.class);
             startActivity(configIntent);
