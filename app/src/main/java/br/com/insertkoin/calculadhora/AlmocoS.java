@@ -76,11 +76,11 @@ public class AlmocoS extends Fragment {
                                 editor.commit();
                                 atencao.setVisibility(View.INVISIBLE);
                                 horaSaidaAlmoco.setTextColor(Color.parseColor("#FFF5F5F5"));
-                                ((TabActivity)getActivity()).setCurrentItem(2, true);
+                                //((TabActivity)getActivity()).setCurrentItem(2, true);
                             }
                         }else{
                             Toast.makeText(getActivity(),"Você precisa definir um horário de entrada antes!",Toast.LENGTH_LONG).show();
-                            ((TabActivity)getActivity()).setCurrentItem(0, true);
+                            //((TabActivity)getActivity()).setCurrentItem(0, true);
                         }
                     }
                 }, currentHour, currentMinute, true);

@@ -1,6 +1,8 @@
 package br.com.insertkoin.calculadhora;
 
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,13 +20,12 @@ import java.util.Calendar;
 public class Entrada extends Fragment {
 
     private EditText horaEntrada;
-    private ImageView imageViewEntrada;
+    private ImageView imageViewEntrada, slideImage;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
-    private int currentHour;
-    private int currentMinute;
-
+    private int currentHour, currentMinute;
+    Long duracaoAnimacao = 2000L;
 
 
     public Entrada() {
@@ -38,6 +39,8 @@ public class Entrada extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_entrada, container, false);
 
+        slideImage = view.findViewById(R.id.slidingID);
+        slideImage.setVisibility(View.INVISIBLE);
         horaEntrada = view.findViewById(R.id.horaEntradaID);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
         if(sharedPreferences.contains("Entrada")){
@@ -59,7 +62,9 @@ public class Entrada extends Fragment {
                         horaEntrada.setText(String.format("%02d:%02d", hourOfDay, minute));
                         editor.putString("Entrada",String.format("%02d:%02d", hourOfDay, minute));
                         editor.commit();
-                        ((TabActivity)getActivity()).setCurrentItem(1, true);
+                        //((TabActivity)getActivity()).setCurrentItem(1, true);
+                        slideImage.setVisibility(View.VISIBLE);
+                        animar();
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();
@@ -74,9 +79,20 @@ public class Entrada extends Fragment {
             }
         });
 
-
         return view;
 
+    }
+
+    public void animar() {
+        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(slideImage, "alpha",1);
+        ObjectAnimator animacao = ObjectAnimator.ofFloat(slideImage, "rotation", 0f, -30f, 0f, 30f, 0f, -30f, 0f, 30f);
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(slideImage, "alpha",0);
+        fadeIn.setDuration(0);
+        animacao.setDuration(duracaoAnimacao);
+        fadeOut.setDuration(duracaoAnimacao);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(fadeIn,animacao,fadeOut);
+        animatorSet.start();
     }
 
 }

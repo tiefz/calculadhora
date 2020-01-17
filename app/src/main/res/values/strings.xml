@@ -48,4 +48,5 @@
     <string name="display4">Você pode desativar o calculo de pausa extra se você não faz nenhuma pausa além do almoço.</string>
     <string name="atencao">O Valor está menor que o anterior!</string>
     <string name="alarme">Alarme</string>
+    <string name="slide">Slide</string>
 </resources>

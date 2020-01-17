@@ -93,6 +93,7 @@ public class SaidaCalculada extends Fragment {
                     editor.remove("AlmocoS");
                     editor.remove("AlmocoR");
                     editor.remove("PausasExtras");
+                    editor.remove("SaidaHT");
                     editor.commit();
                 }
 

@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class TabActivity extends AppCompatActivity {
+public class TabActivity2 extends AppCompatActivity {
 
     private static final String SETTINGS = "Settings";
 
@@ -28,7 +28,7 @@ public class TabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tab);
+        setContentView(R.layout.activity_tab2);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -41,7 +41,7 @@ public class TabActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(TabActivity.this, MainActivity.class);
+                Intent intent = new Intent(TabActivity2.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -126,7 +126,7 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new AlmocoR();
                         break;
                     case 3:
-                        fragment = new SaidaCalculada();
+                        fragment = new SaidaHT();
                         break;
                 }
 
@@ -146,7 +146,7 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new PausaExtra();
                         break;
                     case 4:
-                        fragment = new SaidaCalculada();
+                        fragment = new SaidaHT();
                         break;
                 }
             }
