@@ -40,7 +40,7 @@ public class Entrada extends Fragment {
         View view = inflater.inflate(R.layout.fragment_entrada, container, false);
 
         slideImage = view.findViewById(R.id.slidingID);
-        slideImage.setVisibility(View.INVISIBLE);
+        animar();
         horaEntrada = view.findViewById(R.id.horaEntradaID);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
         if(sharedPreferences.contains("Entrada")){
@@ -62,9 +62,7 @@ public class Entrada extends Fragment {
                         horaEntrada.setText(String.format("%02d:%02d", hourOfDay, minute));
                         editor.putString("Entrada",String.format("%02d:%02d", hourOfDay, minute));
                         editor.commit();
-                        //((TabActivity)getActivity()).setCurrentItem(1, true);
-                        slideImage.setVisibility(View.VISIBLE);
-                        animar();
+                        ((TabActivity)getActivity()).setCurrentItem(1, true);
                     }
                 }, currentHour, currentMinute, true);
                 timePickerDialog.show();

@@ -29,7 +29,7 @@ public class PausaExtra extends Fragment {
     private ImageView coffe;
     private ImageView limparPausas;
     private Button botaoAddPausa;
-    //private Button proximo;
+    private Button proximo;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -157,15 +157,15 @@ public class PausaExtra extends Fragment {
             }
         });
 
-//        proximo = view.findViewById(R.id.proximoID4);
-//        //proximo.setVisibility(View.INVISIBLE);
-//        proximo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ((TabActivity)getActivity()).setCurrentItem(4, true);
-//
-//            }
-//        });
+        proximo = view.findViewById(R.id.proximoID4);
+        proximo.setVisibility(View.INVISIBLE);
+        proximo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TabActivity)getActivity()).setCurrentItem(4, true);
+
+            }
+        });
 
 
         return view;

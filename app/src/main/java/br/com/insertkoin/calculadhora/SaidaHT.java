@@ -94,13 +94,13 @@ public class SaidaHT extends Fragment {
                                 editor.commit();
                                 atencao.setVisibility(View.INVISIBLE);
                                 horaSaidaHT.setTextColor(Color.parseColor("#FFF5F5F5"));
-                                //((TabActivity2)getActivity()).setCurrentItem(3, true);
+                                //((TabActivity)getActivity()).setCurrentItem(3, true);
                                 botaoCalcHT.setVisibility(View.VISIBLE);
                                 imageViewSaidaHT.setVisibility(View.INVISIBLE);
                             }
                         }else {
                             Toast.makeText(getActivity(),"Você precisa definir um horário de almoço antes!",Toast.LENGTH_LONG).show();
-                            //((TabActivity2)getActivity()).setCurrentItem(1, true);
+                            //((TabActivity)getActivity()).setCurrentItem(1, true);
                         }
                     }
                 }, currentHour, currentMinute, true);

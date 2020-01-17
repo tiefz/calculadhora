@@ -10,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ public class TabActivity extends AppCompatActivity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     private ViewPager mViewPager;
+
+    int valorRecebido = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,12 @@ public class TabActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Bundle b = getIntent().getExtras();
+
+        if(b != null)
+            valorRecebido = b.getInt("key");
+
 
     }
 
@@ -106,6 +115,7 @@ public class TabActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
+            //Log.i("Teste de intent  - ", "Int recebido: " + valorRecebido);
             Fragment fragment = new Fragment();
             Boolean ativaPausa = true;
             SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
@@ -126,7 +136,11 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new AlmocoR();
                         break;
                     case 3:
-                        fragment = new SaidaCalculada();
+                        if(valorRecebido > 1) {
+                            fragment = new SaidaHT();
+                        } else {
+                            fragment = new SaidaCalculada();
+                        }
                         break;
                 }
 
@@ -146,7 +160,11 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new PausaExtra();
                         break;
                     case 4:
-                        fragment = new SaidaCalculada();
+                        if(valorRecebido > 1) {
+                            fragment = new SaidaHT();
+                        } else {
+                            fragment = new SaidaCalculada();
+                        }
                         break;
                 }
             }

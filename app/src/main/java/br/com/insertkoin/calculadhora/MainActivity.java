@@ -153,9 +153,11 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_calculadHoraID) {
             Intent configIntent = new Intent(this, TabActivity.class);
+            configIntent.putExtra("key", 1);
             startActivity(configIntent);
         } else if (id == R.id.nav_calculaTempoID) {
-            Intent configIntent = new Intent(this, TabActivity2.class);
+            Intent configIntent = new Intent(this, TabActivity.class);
+            configIntent.putExtra("key", 2);
             startActivity(configIntent);
         } else if (id == R.id.nav_manage) {
             Intent configIntent = new Intent(this, ConfigActivity.class);

@@ -79,11 +79,11 @@ public class AlmocoR extends Fragment {
                                 editor.commit();
                                 atencao.setVisibility(View.INVISIBLE);
                                 horaRetornoAlmoco.setTextColor(Color.parseColor("#FFF5F5F5"));
-                                //((TabActivity)getActivity()).setCurrentItem(3, true);
+                                ((TabActivity)getActivity()).setCurrentItem(3, true);
                             }
                         }else {
                             Toast.makeText(getActivity(),"Você precisa definir um horário de almoço antes!",Toast.LENGTH_LONG).show();
-                            //((TabActivity)getActivity()).setCurrentItem(1, true);
+                            ((TabActivity)getActivity()).setCurrentItem(1, true);
                         }
                     }
                 }, currentHour, currentMinute, true);
