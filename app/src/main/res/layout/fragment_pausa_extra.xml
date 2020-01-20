@@ -169,4 +169,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botaoAddPausaID" />
 
+    <TextView
+        android:id="@+id/textTotalPausaID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/bg_cinza"
+        android:padding="6dp"
+        android:text="@string/total_pausa"
+        android:textColor="@color/cor_fonte"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoAddPausaID"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalPausaID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/bg_cinza"
+        android:padding="6dp"
+        android:text="@string/zerohora"
+        android:textColor="@color/cor_fonte"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/botaoAddPausaID"
+        app:layout_constraintStart_toEndOf="@+id/textTotalPausaID" />
+
 </android.support.constraint.ConstraintLayout>

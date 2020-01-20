@@ -14,30 +14,24 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import com.google.gson.Gson;
 import android.widget.Toast;
+
 import org.joda.time.LocalTime;
-import java.util.ArrayList;
+
 import java.util.Calendar;
 
 
 public class PausaExtra extends Fragment {
 
-    private EditText pausaSaida;
-    private EditText pausaRetorno;
-    private TextView maisPausas;
-    private ImageView coffe;
-    private ImageView limparPausas;
-    private Button botaoAddPausa;
-    private Button proximo;
+    private EditText pausaRetorno, pausaSaida;
+    private TextView maisPausas, textTotalPausa, totalPausaDisplay;
+    private ImageView limparPausas, coffe;
+    private Button proximo, botaoAddPausa;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
-    private int currentHour;
-    private int currentMinute;
-    private LocalTime validaHoraAnterior;
-    private LocalTime validaHoraAtual;
-    ArrayList<Pausa> listaPausas = new ArrayList<>();
+    private int currentHour, currentMinute;
+    private LocalTime validaHoraAnterior, validaHoraAtual;
 
 
     public PausaExtra() {
@@ -53,6 +47,10 @@ public class PausaExtra extends Fragment {
 
         maisPausas = view.findViewById(R.id.maisPausasID);
         maisPausas.setVisibility(View.INVISIBLE);
+        textTotalPausa = view.findViewById(R.id.textTotalPausaID);
+        textTotalPausa.setVisibility(View.INVISIBLE);
+        totalPausaDisplay = view.findViewById(R.id.totalPausaID);
+        totalPausaDisplay.setVisibility(View.INVISIBLE);
         pausaSaida = view.findViewById(R.id.pausaSaidaID);
         pausaRetorno = view.findViewById(R.id.pausaRetornoID);
         pausaSaida.setText(R.string.zerohora);
@@ -94,6 +92,8 @@ public class PausaExtra extends Fragment {
                             Toast.makeText(getActivity(),"A volta da pausa não pode ser menor que a saída",Toast.LENGTH_LONG).show();
                         }else {
                             pausaRetorno.setTextColor(Color.parseColor("#FFF5F5F5"));
+                            textTotalPausa.setVisibility(View.INVISIBLE);
+                            totalPausaDisplay.setVisibility(View.INVISIBLE);
                             botaoAddPausa.setVisibility(View.VISIBLE);
                         }
                     }
@@ -107,15 +107,21 @@ public class PausaExtra extends Fragment {
         botaoAddPausa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                LocalTime pausaExtra = LocalTime.parse("00:00");
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 String pausaS = pausaSaida.getText().toString();
                 String pausaR = pausaRetorno.getText().toString();
-                Pausa descanso = new Pausa(pausaS, pausaR);
-                listaPausas.add(descanso);
-                Gson gson = new Gson();
-                String json = gson.toJson(listaPausas);
-                editor.putString("PausasExtras",json);
+                LocalTime p1 = LocalTime.parse(pausaS);
+                LocalTime p2 = LocalTime.parse(pausaR);
+                LocalTime calculoDePausa = p2.minusHours(p1.getHourOfDay()).minusMinutes(p1.getMinuteOfHour());
+
+                if(sharedPreferences.contains("PausasExtras")){
+                    pausaExtra = LocalTime.parse(sharedPreferences.getString("PausasExtras", "00:00"));
+                    calculoDePausa = calculoDePausa.plusHours(pausaExtra.getHourOfDay()).plusMinutes(pausaExtra.getMinuteOfHour());
+                }
+
+                editor.putString("PausasExtras",calculoDePausa.toString("HH:mm"));
                 editor.commit();
                 botaoAddPausa.setText("Pausa adicionada");
                 Toast.makeText(getActivity(),"Pausa adicionada ;)",Toast.LENGTH_SHORT).show();
@@ -124,6 +130,9 @@ public class PausaExtra extends Fragment {
                 maisPausas.setVisibility(View.VISIBLE);
                 limparPausas.setVisibility(View.VISIBLE);
                 botaoAddPausa.setVisibility(View.INVISIBLE);
+                textTotalPausa.setVisibility(View.VISIBLE);
+                totalPausaDisplay.setVisibility(View.VISIBLE);
+                totalPausaDisplay.setText(calculoDePausa.toString("HH:mm"));
 
             }
         });
@@ -131,12 +140,19 @@ public class PausaExtra extends Fragment {
 
         limparPausas = view.findViewById(R.id.limparPausasID);
         limparPausas.setVisibility(View.INVISIBLE);
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+        if(sharedPreferences.contains("PausasExtras")){
+            limparPausas.setVisibility(View.VISIBLE);
+            maisPausas.setVisibility(View.VISIBLE);
+            textTotalPausa.setVisibility(View.VISIBLE);
+            totalPausaDisplay.setVisibility(View.VISIBLE);
+            totalPausaDisplay.setText(sharedPreferences.getString("PausasExtras", "00:00"));
+        }
         limparPausas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
-                listaPausas.clear();
                 editor.remove("PausasExtras");
                 editor.commit();
                 botaoAddPausa.setEnabled(true);
@@ -145,6 +161,8 @@ public class PausaExtra extends Fragment {
                 pausaRetorno.setText(R.string.zerohora);
                 limparPausas.setVisibility(View.INVISIBLE);
                 maisPausas.setVisibility(View.INVISIBLE);
+                textTotalPausa.setVisibility(View.INVISIBLE);
+                totalPausaDisplay.setVisibility(View.INVISIBLE);
                 Toast.makeText(getActivity(),"Todas as pausas foram excluídas!",Toast.LENGTH_SHORT).show();
             }
         });

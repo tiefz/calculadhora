@@ -115,7 +115,6 @@ public class TabActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            //Log.i("Teste de intent  - ", "Int recebido: " + valorRecebido);
             Fragment fragment = new Fragment();
             Boolean ativaPausa = true;
             SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);

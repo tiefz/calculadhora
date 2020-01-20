@@ -15,10 +15,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+
 import org.joda.time.LocalTime;
-import java.lang.reflect.Type;
+
 import java.util.ArrayList;
 
 
@@ -71,14 +70,16 @@ public class SaidaCalculada extends Fragment {
                     intervalo.setEntrada(sharedPreferences.getString("Entrada", "00:00"));
                     String almocoS = sharedPreferences.getString("AlmocoS", "00:00");
                     String almocoR = sharedPreferences.getString("AlmocoR", "00:00");
-                    Pausa almoco = new Pausa(almocoS, almocoR);
-
                     if(sharedPreferences.contains("PausasExtras")){
-                        Gson gson = new Gson();
-                        String json = sharedPreferences.getString("PausasExtras", null);
-                        Type type = new TypeToken<ArrayList<Pausa>>() {}.getType();
-                        listaPausas = gson.fromJson(json, type);
+
+                        String pausaExtra = sharedPreferences.getString("PausasExtras", "00:00");
+                        LocalTime p1 = LocalTime.parse(pausaExtra);
+                        LocalTime p2 = LocalTime.parse(almocoR);
+                        LocalTime somaPausaExtra = p1.plusHours(p2.getHourOfDay()).plusMinutes(p2.getMinuteOfHour());
+                        almocoR = somaPausaExtra.toString("HH:mm");
+
                     }
+                    Pausa almoco = new Pausa(almocoS, almocoR);
 
                     listaPausas.add(almoco);
                     intervalo.setPausas(listaPausas);

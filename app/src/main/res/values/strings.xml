@@ -9,7 +9,7 @@
     <string name="label4">Total de Pausa</string>
     <string name="saida">Saída</string>
     <string name="retorno">Retorno</string>
-    <string name="botao_limpar">Limpar</string>
+    <string name="botao_limpar">Limpar Pausas</string>
     <string name="limpa_pausa">Botão Limpa Pausa</string>
     <string name="title_activity_tab">TabActivity</string>
     <string name="tab_text_1">Tab 1</string>
@@ -52,4 +52,5 @@
     <string name="quer_fazer">O que você quer fazer agora?</string>
     <string name="quero_saida">Quero calcular a hora de sair do trabalho</string>
     <string name="quero_total">Quero calcular o total de horas trabalhadas e hora extra</string>
+    <string name="total_pausa">Total de Pausa Adicionada</string>
 </resources>
