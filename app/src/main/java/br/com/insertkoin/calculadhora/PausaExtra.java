@@ -51,6 +51,15 @@ public class PausaExtra extends Fragment {
         textTotalPausa.setVisibility(View.INVISIBLE);
         totalPausaDisplay = view.findViewById(R.id.totalPausaID);
         totalPausaDisplay.setVisibility(View.INVISIBLE);
+        proximo = view.findViewById(R.id.proximoID4);
+        proximo.setVisibility(View.INVISIBLE);
+        proximo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((TabActivity)getActivity()).setCurrentItem(4, true);
+
+            }
+        });
         pausaSaida = view.findViewById(R.id.pausaSaidaID);
         pausaRetorno = view.findViewById(R.id.pausaRetornoID);
         pausaSaida.setText(R.string.zerohora);
@@ -133,6 +142,7 @@ public class PausaExtra extends Fragment {
                 textTotalPausa.setVisibility(View.VISIBLE);
                 totalPausaDisplay.setVisibility(View.VISIBLE);
                 totalPausaDisplay.setText(calculoDePausa.toString("HH:mm"));
+                proximo.setVisibility(View.VISIBLE);
 
             }
         });
@@ -147,6 +157,7 @@ public class PausaExtra extends Fragment {
             textTotalPausa.setVisibility(View.VISIBLE);
             totalPausaDisplay.setVisibility(View.VISIBLE);
             totalPausaDisplay.setText(sharedPreferences.getString("PausasExtras", "00:00"));
+            proximo.setVisibility(View.VISIBLE);
         }
         limparPausas.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +174,7 @@ public class PausaExtra extends Fragment {
                 maisPausas.setVisibility(View.INVISIBLE);
                 textTotalPausa.setVisibility(View.INVISIBLE);
                 totalPausaDisplay.setVisibility(View.INVISIBLE);
+                proximo.setVisibility(View.INVISIBLE);
                 Toast.makeText(getActivity(),"Todas as pausas foram excluídas!",Toast.LENGTH_SHORT).show();
             }
         });
@@ -174,17 +186,6 @@ public class PausaExtra extends Fragment {
                 Toast.makeText(getActivity(),"Você pode adicionar quantas pausas quiser, clicando no sinal de + pausas",Toast.LENGTH_SHORT).show();
             }
         });
-
-        proximo = view.findViewById(R.id.proximoID4);
-        proximo.setVisibility(View.INVISIBLE);
-        proximo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((TabActivity)getActivity()).setCurrentItem(4, true);
-
-            }
-        });
-
 
         return view;
     }
