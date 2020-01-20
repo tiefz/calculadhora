@@ -14,7 +14,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
-        android:text="@string/calcular"
+        android:text="@string/calcular_hora_trabalhada"
         android:textColor="@color/cor_fonte"
         android:textSize="36sp"
         android:textStyle="bold"

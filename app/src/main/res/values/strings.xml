@@ -41,7 +41,7 @@
     <string name="bemvindo">Bem vindo à CalculadHora</string>
     <string name="calcular">Calcular</string>
     <string name="almoco">Almoço</string>
-    <string name="display1">Calcule a hora de saída do trabalho ou saiba quantas horas você trabalhou no dia.</string>
+    <string name="display1">O último horário de saída calculado foi:</string>
     <string name="display2">Sua carga horária de trabalho está configurada para:</string>
     <string name="salvar">Salvar</string>
     <string name="display3">Ajuste abaixo a quantidade de horas que você trabalha por dia (Sem contar o tempo de almoço).</string>
@@ -49,4 +49,7 @@
     <string name="atencao">O Valor está menor que o anterior!</string>
     <string name="alarme">Alarme</string>
     <string name="slide">Slide</string>
+    <string name="quer_fazer">O que você quer fazer agora?</string>
+    <string name="quero_saida">Quero calcular a hora de sair do trabalho</string>
+    <string name="quero_total">Quero calcular o total de horas trabalhadas e hora extra</string>
 </resources>

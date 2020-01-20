@@ -34,6 +34,7 @@ public class SaidaCalculada extends Fragment {
     private Button botaoCalc;
     private ImageButton alarme;
     private static final String SETTINGS = "Settings";
+    private static final String HORA_DE_CALCULO = "08:48";
     private AlertDialog.Builder dialog;
     ArrayList<Pausa> listaPausas = new ArrayList<>();
 
@@ -145,7 +146,7 @@ public class SaidaCalculada extends Fragment {
     private Intervalo calcularSaida(Intervalo intervalo) {
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
-        String HoraDeCalculo = "08:48";
+        String HoraDeCalculo = HORA_DE_CALCULO;
         LocalTime horaFixa;
         horaFixa = LocalTime.parse(HoraDeCalculo);
 

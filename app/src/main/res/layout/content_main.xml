@@ -11,86 +11,121 @@
     tools:showIn="@layout/app_bar_main">
 
     <Button
-        android:id="@+id/calcularID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnCalcTotalHomeID"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/calcular"
+        android:text="@string/calcular_hora_trabalhada"
         android:textAllCaps="true"
         android:textColor="@color/cor_fonte"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID"
+        app:layout_constraintStart_toEndOf="@+id/perguntaSaida2"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalcSaidaHomeID"
+        tools:targetApi="lollipop" />
+
+    <Button
+        android:id="@+id/btnCalcSaidaHomeID"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="@color/bg_green"
+        android:padding="@dimen/activity_vertical_margin"
+        android:text="@string/btcalc"
+        android:textAllCaps="true"
+        android:textColor="@color/cor_fonte"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/perguntaSaida"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:targetApi="lollipop" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/bemvindo"
+        android:layout_marginTop="8dp"
+        android:text="@string/quer_fazer"
         android:textColor="@color/bg_cinza"
         android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/logoMainID" />
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="230dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/display1"
         android:textColor="@color/bg_cinza"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoMainID" />
+        app:layout_constraintTop_toBottomOf="@+id/firstDivider" />
 
     <View
         android:id="@+id/firstDivider"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="16dp"
         android:background="@color/Cinza_500"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="230dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/display2"
+        android:textColor="@color/bg_cinza"
+        app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <TextView
-        android:id="@+id/textView15"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/display2"
+        android:id="@+id/perguntaSaida"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:padding="@dimen/nav_header_vertical_spacing"
+        android:text="@string/quero_saida"
         android:textColor="@color/bg_cinza"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calcularID" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:id="@+id/perguntaSaida2"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:padding="@dimen/nav_header_vertical_spacing"
-        android:text="@string/saida"
+        android:text="@string/quero_total"
         android:textColor="@color/bg_cinza"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toStartOf="@+id/ultimaHoraID"
-        app:layout_constraintTop_toTopOf="@+id/firstDivider" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/perguntaSaida" />
 
     <TextView
         android:id="@+id/horaAjustadaID"
@@ -99,40 +134,45 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:text="@string/zerohora"
         android:textColor="@color/bg_cinza"
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/calcularID" />
+        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID" />
 
     <ImageView
         android:id="@+id/logoMainID"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/calc512" />
 
     <TextView
         android:id="@+id/ultimaHoraID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
         android:padding="@dimen/nav_header_vertical_spacing"
         android:text="@string/zerohora"
         android:textColor="@color/bg_texto"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
 </android.support.constraint.ConstraintLayout>

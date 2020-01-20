@@ -94,13 +94,12 @@ public class SaidaHT extends Fragment {
                                 editor.commit();
                                 atencao.setVisibility(View.INVISIBLE);
                                 horaSaidaHT.setTextColor(Color.parseColor("#FFF5F5F5"));
-                                //((TabActivity)getActivity()).setCurrentItem(3, true);
                                 botaoCalcHT.setVisibility(View.VISIBLE);
                                 imageViewSaidaHT.setVisibility(View.INVISIBLE);
                             }
                         }else {
                             Toast.makeText(getActivity(),"Você precisa definir um horário de almoço antes!",Toast.LENGTH_LONG).show();
-                            //((TabActivity)getActivity()).setCurrentItem(1, true);
+                            ((TabActivity)getActivity()).setCurrentItem(2, true);
                         }
                     }
                 }, currentHour, currentMinute, true);
@@ -119,7 +118,15 @@ public class SaidaHT extends Fragment {
         botaoCalcHT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
+                Intent intent = new Intent(getActivity(), HoraTotalTrabalhada.class);
+                intent.putExtra("Entrada", sharedPreferences.getString("Entrada", "00:00"));
+                intent.putExtra("AlmocoS", sharedPreferences.getString("AlmocoS", "00:00"));
+                intent.putExtra("AlmocoR", sharedPreferences.getString("AlmocoR", "00:00"));
+                intent.putExtra("SaidaHT", sharedPreferences.getString("SaidaHT", "00:00"));
+                if(sharedPreferences.contains("PausasExtras")){
+                    intent.putExtra("PausasExtras", sharedPreferences.getString("PausasExtras", "00:00"));
+                }
                 startActivity(intent);
                 botaoCalcHT.setVisibility(View.INVISIBLE);
                 imageViewSaidaHT.setVisibility(View.VISIBLE);
