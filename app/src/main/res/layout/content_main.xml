@@ -12,37 +12,35 @@
 
     <Button
         android:id="@+id/btnCalcTotalHomeID"
-        android:layout_width="150dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/calcular_hora_trabalhada"
+        android:text="@string/quero_total"
         android:textAllCaps="true"
         android:textColor="@color/cor_fonte"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/perguntaSaida2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnCalcSaidaHomeID"
         tools:targetApi="lollipop" />
 
     <Button
         android:id="@+id/btnCalcSaidaHomeID"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@drawable/buttons"
         android:backgroundTint="@color/bg_green"
         android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/btcalc"
+        android:text="@string/quero_saida"
         android:textAllCaps="true"
         android:textColor="@color/cor_fonte"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/perguntaSaida"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
         tools:targetApi="lollipop" />
 
@@ -62,14 +60,16 @@
 
     <TextView
         android:id="@+id/textView12"
-        android:layout_width="230dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/Cinza_500"
+        android:gravity="center"
+        android:padding="5dp"
         android:text="@string/display1"
-        android:textColor="@color/bg_cinza"
+        android:textColor="@color/cor_fonte"
         app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/firstDivider" />
 
@@ -84,63 +84,30 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="230dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/Cinza_500"
+        android:gravity="center"
+        android:padding="5dp"
         android:text="@string/display2"
-        android:textColor="@color/bg_cinza"
+        android:textColor="@color/cor_fonte"
         app:fontFamily="sans-serif-condensed-medium"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/perguntaSaida"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="32dp"
-        android:padding="@dimen/nav_header_vertical_spacing"
-        android:text="@string/quero_saida"
-        android:textColor="@color/bg_cinza"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/perguntaSaida2"
-        android:layout_width="180dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:padding="@dimen/nav_header_vertical_spacing"
-        android:text="@string/quero_total"
-        android:textColor="@color/bg_cinza"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/perguntaSaida" />
+        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID" />
 
     <TextView
         android:id="@+id/horaAjustadaID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
         android:text="@string/zerohora"
         android:textColor="@color/bg_cinza"
         android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
-        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
     <ImageView
         android:id="@+id/logoMainID"
@@ -156,18 +123,16 @@
     <TextView
         android:id="@+id/ultimaHoraID"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="0dp"
         android:padding="@dimen/nav_header_vertical_spacing"
         android:text="@string/zerohora"
         android:textColor="@color/bg_texto"
-        android:textSize="24sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

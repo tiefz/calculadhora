@@ -1,4 +1,9 @@
-![](https://img.shields.io/badge/Vers%C3%A3o-1.2.0-brightgreen.svg)
+[![GitHub release](https://img.shields.io/github/release/tiefz/calculadhora.svg)](https://GitHub.com/tiefz/calculadhora/releases/)
+
+[![GitHub issues](https://img.shields.io/github/issues/tiefz/calculadhora.svg)](https://GitHub.com/tiefz/calculadhora/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/tiefz/calculadhora.svg)](https://GitHub.com/tiefz/calculadhora/issues?q=is%3Aissue+is%3Aclosed)
+
+[![Github releases (by asset)](https://img.shields.io/github/downloads/tiefz/calculadhora/latest/calculadhora)](https://GitHub.com/tiefz/calculadhora/releases/) [![Github all releases](https://img.shields.io/github/downloads/tiefz/calculadhora/total.svg)](https://GitHub.com/tiefz/calculadhora/releases/)
+
 # Calculadhora
 ### Projeto App Android CalculadHora
 Use  a CalculadHora para saber exatamente a hora em que você precisa sair do trabalho naqueles dias em que você entrou alguns minutos mais tarde, fez algumas pausas a mais no trabalho pra um cafezinho extra e tirou menos tempo de almoço que o de costume.
@@ -43,3 +48,4 @@ Em breve novas funcionalidades como: Calculo de hora trabalhada no mês, banco d
 #### Versão 1.0
 - Calculo de horário de saída. 
 - Uma Activity simples
+
