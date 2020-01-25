@@ -17,9 +17,6 @@
     <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_entrada">Entrada</string>
     <string name="tab_almoco">Lanche</string>
     <string name="tab_retorno">Retorno</string>
@@ -53,4 +50,12 @@
     <string name="quero_saida">Quero calcular a hora de sair do trabalho</string>
     <string name="quero_total">Quero calcular o total de horas trabalhadas e hora extra</string>
     <string name="total_pausa">Total de Pausa Adicionada</string>
+    <string name="resultado">Resultados</string>
+    <string name="horas_trabalhadas">Horas Trabalhadas</string>
+    <string name="banco_horas">Banco de Horas</string>
+    <string name="bh_positivo">Banco de Horas Positivo!</string>
+    <string name="bh_negativo">Banco de Horas Negativo!</string>
+    <string name="bh_zerado">Banco de Horas Zerado!</string>
+    <string name="concluir">Concluir</string>
+    <string name="horas_previstas">Horas Previstas</string>
 </resources>

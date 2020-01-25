@@ -2,11 +2,13 @@ package br.com.insertkoin.calculadhora;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.joda.time.Duration;
@@ -20,20 +22,29 @@ public class HoraTotalTrabalhada extends AppCompatActivity {
 
     private static final String HORA_DE_CALCULO = "08:48";
     private static final String SETTINGS = "Settings";
+    private String entradaSalva, almocoSSalvo, almocoRSalvo, pausaSalva, saidaSalva;
+    private TextView textoBHResultado, bancoHorasResultado, horasTrabalhadasResultado, horasPrevistas;
+    private Button botaoConcluir;
+    private ImageView smiley;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hora_total_trabalhada);
 
-        String entradaSalva, almocoSSalvo, almocoRSalvo, pausaSalva, saidaSalva;
-        TextView hoEntradaTeste, hoAlmocoSTeste, hoAlmocoRTeste, hoSaidaTeste, pausaTesteId;
-        Button button;
+
         SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         String HoraDeCalculo = HORA_DE_CALCULO;
+        horasPrevistas = findViewById(R.id.horasPrevistasID);
+        horasPrevistas.setText(HORA_DE_CALCULO);
+        smiley = findViewById(R.id.smileyID);
+        smiley.setImageDrawable( ContextCompat.getDrawable(this, R.drawable.happy ) );
         if(sharedPreferences.contains("HoraDeCalculo")){
             HoraDeCalculo = sharedPreferences.getString("HoraDeCalculo", "08:48");
+            horasPrevistas.setText(HoraDeCalculo);
         }
         Bundle b = getIntent().getExtras();
 
@@ -72,23 +83,24 @@ public class HoraTotalTrabalhada extends AppCompatActivity {
             horaExtra = new Period(horarioDeTrabalho, calculoDiaHT, PeriodType.dayTime());
             Duration dur = horaExtra.toStandardDuration();
 
-            hoEntradaTeste = findViewById(R.id.hoEntradaTesteID);
+            textoBHResultado = findViewById(R.id.textoBHResultadoID);
 
             if(dur.getStandardMinutes() < 0) {
-                System.out.println("Você ficou negativo");
-                hoEntradaTeste.setText("Você ficou negativo");
+                textoBHResultado.setText(R.string.bh_negativo);
+                textoBHResultado.setBackgroundResource(R.color.vermelho);
+                smiley.setImageDrawable( ContextCompat.getDrawable(this, R.drawable.sad ) );
             }else if(dur.getStandardMinutes() == 0){
-                System.out.println("Você ficou zerado");
-                hoEntradaTeste.setText("Você ficou zerado");
+                textoBHResultado.setText(R.string.bh_zerado);
+                textoBHResultado.setBackgroundResource(R.color.bg_cinza);
             }else {
-                System.out.println("Você ficou positivo");
-                hoEntradaTeste.setText("Você ficou positivo");
+                textoBHResultado.setText(R.string.bh_positivo);
+                textoBHResultado.setBackgroundResource(R.color.bg_green);
             }
 
-            hoAlmocoSTeste = findViewById(R.id.hoAlmocoSTesteID);
-            hoAlmocoSTeste.setText(durationToHHHmmFormat(dur, ":"));
-            hoAlmocoRTeste = findViewById(R.id.hoAlmocoRTesteID);
-            hoAlmocoRTeste.setText(calculoDiaHT.toString("HH:mm"));
+            bancoHorasResultado = findViewById(R.id.bancoHorasResultadoID);
+            bancoHorasResultado.setText(durationToHHHmmFormat(dur, ":"));
+            horasTrabalhadasResultado = findViewById(R.id.horasTrabalhadasResultadoID);
+            horasTrabalhadasResultado.setText(calculoDiaHT.toString("HH:mm"));
 
             editor.remove("Entrada");
             editor.remove("AlmocoS");
@@ -97,8 +109,8 @@ public class HoraTotalTrabalhada extends AppCompatActivity {
             editor.remove("SaidaHT");
             editor.commit();
 
-            button = findViewById(R.id.button);
-            button.setOnClickListener(new View.OnClickListener() {
+            botaoConcluir = findViewById(R.id.botaoConcluirID);
+            botaoConcluir.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(HoraTotalTrabalhada.this, MainActivity.class));
@@ -109,6 +121,8 @@ public class HoraTotalTrabalhada extends AppCompatActivity {
             startActivity(new Intent(HoraTotalTrabalhada.this, MainActivity.class));
             Log.i("Erro", "Tentou calcular sem bundle intent");
         }
+
+        botaoConcluir = findViewById(R.id.botaoConcluirID);
 
     }
 
