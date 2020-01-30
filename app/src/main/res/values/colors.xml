@@ -11,26 +11,23 @@
     <color name="Cinza_300">#EEEEEE</color>
     <color name="vermelho">#F44336</color>
 
-    <!-- Screens background color-->
-    <color name="bg_screen1">#8cf9eb</color>
-    <color name="bg_screen2">#20d2bb</color>
-    <color name="bg_screen3">#009688</color>
-    <color name="bg_screen4">#004d40</color>
+    <color name="bg_screen1">#F5F5F5</color>
+    <color name="bg_screen2">#8cf9eb</color>
+    <color name="bg_screen3">#20d2bb</color>
+    <color name="bg_screen4">#009688</color>
     <color name="bg_screen5">#004d40</color>
 
-    <!-- dots inactive colors -->
-    <color name="dot_dark_screen1">#d1395c</color>
-    <color name="dot_dark_screen2">#14a895</color>
-    <color name="dot_dark_screen3">#2278d4</color>
-    <color name="dot_dark_screen4">#a854d4</color>
-    <color name="dot_dark_screen5">#a854d4</color>
+    <color name="dot_dark_screen1">#004D40</color>
+    <color name="dot_dark_screen2">#00695C</color>
+    <color name="dot_dark_screen3">#00796B</color>
+    <color name="dot_dark_screen4">#00897B</color>
+    <color name="dot_dark_screen5">#009688</color>
 
-    <!-- dots active colors -->
-    <color name="dot_light_screen1">#f98da5</color>
-    <color name="dot_light_screen2">#8cf9eb</color>
-    <color name="dot_light_screen3">#93c6fd</color>
-    <color name="dot_light_screen4">#e4b5fc</color>
-    <color name="dot_light_screen5">#e4b5fc</color>
+    <color name="dot_light_screen1">#26A69A</color>
+    <color name="dot_light_screen2">#4DB6AC</color>
+    <color name="dot_light_screen3">#80CBC4</color>
+    <color name="dot_light_screen4">#B2DFDB</color>
+    <color name="dot_light_screen5">#E0F2F1</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

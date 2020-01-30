@@ -12,17 +12,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="@dimen/img_width_height"
-            android:layout_height="@dimen/img_width_height"
-            android:src="@drawable/ic_calculadhora" />
-
-        <TextView
+            android:id="@+id/tutorialGIF02ID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/slide_3_title"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/slide_title"
-            android:textStyle="bold" />
+            android:src="@drawable/screen1a" />
 
         <TextView
             android:layout_width="wrap_content"

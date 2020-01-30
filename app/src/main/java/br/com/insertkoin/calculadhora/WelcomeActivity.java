@@ -3,6 +3,7 @@ package br.com.insertkoin.calculadhora;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,27 +28,24 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
+    private ImageView tutorialGIF01, tutorialGIF02;
+    private AnimationDrawable animation1, animation2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
-        // Making notification bar transparent
         if (Build.VERSION.SDK_INT >= 21) {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
         setContentView(R.layout.activity_welcome);
 
-        viewPager = (ViewPager) findViewById(R.id.view_pager);
-        dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
-        btnSkip = (Button) findViewById(R.id.btn_skip);
-        btnNext = (Button) findViewById(R.id.btn_next);
+        viewPager = findViewById(R.id.view_pager);
+        dotsLayout = findViewById(R.id.layoutDots);
+        btnSkip = findViewById(R.id.btn_skip);
+        btnNext = findViewById(R.id.btn_next);
 
-
-        // layouts of all welcome sliders
-        // add few more layouts if you want
         layouts = new int[]{
                 R.layout.welcome_slide1,
                 R.layout.welcome_slide2,
@@ -54,10 +53,8 @@ public class WelcomeActivity extends AppCompatActivity {
                 R.layout.welcome_slide4,
                 R.layout.welcome_slide5};
 
-        // adding bottom dots
         addBottomDots(0);
 
-        // making notification bar transparent
         changeStatusBarColor();
 
         myViewPagerAdapter = new MyViewPagerAdapter();
@@ -74,17 +71,15 @@ public class WelcomeActivity extends AppCompatActivity {
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // checking for last page
-                // if last page home screen will be launched
                 int current = getItem(+1);
                 if (current < layouts.length) {
-                    // move to next screen
                     viewPager.setCurrentItem(current);
                 } else {
                     launchHomeScreen();
                 }
             }
         });
+
     }
 
     private void addBottomDots(int currentPage) {
@@ -115,22 +110,50 @@ public class WelcomeActivity extends AppCompatActivity {
         finish();
     }
 
-    //  viewpager change listener
     ViewPager.OnPageChangeListener viewPagerPageChangeListener = new ViewPager.OnPageChangeListener() {
 
         @Override
         public void onPageSelected(int position) {
             addBottomDots(position);
+            configAnimation();
+            tutorialGIF01 = findViewById(R.id.tutorialGIF01ID);
+            tutorialGIF02 = findViewById(R.id.tutorialGIF02ID);
 
-            // changing the next button text 'NEXT' / 'GOT IT'
-            if (position == layouts.length - 1) {
-                // last page. make button text to GOT IT
-                btnNext.setText(getString(R.string.start));
-                btnSkip.setVisibility(View.GONE);
-            } else {
-                // still pages are left
-                btnNext.setText(getString(R.string.next));
-                btnSkip.setVisibility(View.VISIBLE);
+
+            switch (position) {
+                case 0:
+                    btnNext.setText(getString(R.string.next));
+                    btnNext.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setVisibility(View.VISIBLE);
+                    break;
+                case 1:
+                    btnNext.setText(getString(R.string.next));
+                    btnNext.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setVisibility(View.VISIBLE);
+                    tutorialGIF01.setImageDrawable(animation1);
+                    animation1.start();
+                    break;
+                case 2:
+                    btnNext.setText(getString(R.string.next));
+                    btnNext.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setTextColor(Color.parseColor("#616161"));
+                    btnSkip.setVisibility(View.VISIBLE);
+                    tutorialGIF02.setImageDrawable(animation2);
+                    animation2.start();
+                    break;
+                case 3:
+                    btnNext.setText(getString(R.string.next));
+                    btnNext.setTextColor(Color.LTGRAY);
+                    btnSkip.setTextColor(Color.LTGRAY);
+                    btnSkip.setVisibility(View.VISIBLE);
+                    break;
+                case 4:
+                    btnNext.setText(getString(R.string.start));
+                    btnNext.setTextColor(Color.WHITE);
+                    btnSkip.setVisibility(View.GONE);
+                    break;
             }
         }
 
@@ -145,9 +168,6 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     };
 
-    /**
-     * Making notification bar transparent
-     */
     private void changeStatusBarColor() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -156,9 +176,30 @@ public class WelcomeActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * View pager adapter
-     */
+    private void configAnimation() {
+        animation1 = new AnimationDrawable();
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen1a), 1200);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2a), 1200);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2b), 1200);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2c), 1200);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2d), 1200);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2e), 800);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2f), 250);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2g), 250);
+        animation1.addFrame(getResources().getDrawable(R.drawable.screen2a), 1200);
+
+        animation2 = new AnimationDrawable();
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3a), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3b), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen2c), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen2d), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3c), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3d), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3e), 1200);
+        animation2.addFrame(getResources().getDrawable(R.drawable.screen3f), 1200);
+
+    }
+
     public class MyViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 

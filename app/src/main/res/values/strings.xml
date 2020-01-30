@@ -58,24 +58,22 @@
     <string name="bh_zerado">Banco de Horas Zerado!</string>
     <string name="concluir">Concluir</string>
     <string name="horas_previstas">Horas Previstas</string>
-
+    <string name="next">PROXIMO</string>
+    <string name="skip">PULAR</string>
+    <string name="start">FINALIZAR</string>
+    <string name="slide_1_desc">Bem vindo ao seu app para calcular as horas trabalhadas! \n\nConheça as principais funcionalidades e configure o seu app  :)</string>
+    <string name="slide_2_desc">Toque no horário de cada intervalo para editar e escolha as horas no relógio. \nVocê poode deslizar para os lados se precisar voltar ou avançar.</string>
+    <string name="slide_3_desc">Para incluir mais pausas, toque nos horários para editar e depois no botão ADICIONAR PAUSA \n Repita quantas vezes precisar e se errar toque na lixeira para limpar tudo.</string>
+    <string name="slide_4_desc">Na home você acompanha a última hora de saída calculada e também a sua carga horária definida nas configurações</string>
     <!-- temp -->
 
-    <string name="next">NEXT</string>
-    <string name="skip">SKIP</string>
-    <string name="start">GOT IT</string>
 
-    <string name="slide_1_title">Hello Food!</string>
-    <string name="slide_1_desc">The easiest way to order food from your favourite restaurant!</string>
-
-    <string name="slide_2_title">Movie Tickets</string>
-    <string name="slide_2_desc">Book movie tickets for your family and friends!</string>
 
     <string name="slide_3_title">Great Discounts</string>
-    <string name="slide_3_desc">Best discounts on every single service we offer!</string>
+
 
     <string name="slide_4_title">World Travel</string>
-    <string name="slide_4_desc">Book tickets of any transportation and travel the world!</string>
+
 
     <string name="slide_5_title">World Travel 5</string>
     <string name="slide_5_desc">Book tickets of any transportation and travel the world! 555</string>
