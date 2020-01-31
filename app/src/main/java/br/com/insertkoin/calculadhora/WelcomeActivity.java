@@ -28,8 +28,8 @@ public class WelcomeActivity extends AppCompatActivity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
-    private ImageView tutorialGIF01, tutorialGIF02;
-    private AnimationDrawable animation1, animation2;
+    private ImageView tutorialGIF01, tutorialGIF02, tutorialGIF03;
+    private AnimationDrawable animation1, animation2, animation3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnSkip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchHomeScreen();
+                launchSetupScreen();
             }
         });
 
@@ -75,7 +75,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 if (current < layouts.length) {
                     viewPager.setCurrentItem(current);
                 } else {
-                    launchHomeScreen();
+                    launchSetupScreen();
                 }
             }
         });
@@ -105,8 +105,8 @@ public class WelcomeActivity extends AppCompatActivity {
         return viewPager.getCurrentItem() + i;
     }
 
-    private void launchHomeScreen() {
-        startActivity(new Intent(WelcomeActivity.this, MainActivity.class));
+    private void launchSetupScreen() {
+        startActivity(new Intent(WelcomeActivity.this, ConfigActivity.class));
         finish();
     }
 
@@ -118,6 +118,7 @@ public class WelcomeActivity extends AppCompatActivity {
             configAnimation();
             tutorialGIF01 = findViewById(R.id.tutorialGIF01ID);
             tutorialGIF02 = findViewById(R.id.tutorialGIF02ID);
+            tutorialGIF03 = findViewById(R.id.tutorialGIF03ID);
 
 
             switch (position) {
@@ -148,6 +149,8 @@ public class WelcomeActivity extends AppCompatActivity {
                     btnNext.setTextColor(Color.LTGRAY);
                     btnSkip.setTextColor(Color.LTGRAY);
                     btnSkip.setVisibility(View.VISIBLE);
+                    tutorialGIF03.setImageDrawable(animation3);
+                    animation3.start();
                     break;
                 case 4:
                     btnNext.setText(getString(R.string.start));
@@ -197,6 +200,14 @@ public class WelcomeActivity extends AppCompatActivity {
         animation2.addFrame(getResources().getDrawable(R.drawable.screen3d), 1200);
         animation2.addFrame(getResources().getDrawable(R.drawable.screen3e), 1200);
         animation2.addFrame(getResources().getDrawable(R.drawable.screen3f), 1200);
+
+        animation3 = new AnimationDrawable();
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5a), 1200);
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5b), 1200);
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5c), 1200);
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5d), 1200);
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5e), 1200);
+        animation3.addFrame(getResources().getDrawable(R.drawable.screen5f), 1200);
 
     }
 

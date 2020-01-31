@@ -10,6 +10,22 @@
     <!-- TODO: Update blank fragment layout -->
 
     <Button
+        android:id="@+id/alarmeID"
+        android:layout_width="275dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/buttons"
+        android:backgroundTint="@color/bg_green"
+        android:text="@string/criar_alarme"
+        android:textColor="@color/cor_fonte"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        tools:targetApi="lollipop" />
+
+    <Button
         android:id="@+id/botaoCalcID"
         android:layout_width="275dp"
         android:layout_height="0dp"
@@ -18,7 +34,7 @@
         android:backgroundTint="@color/bg_green"
         android:text="@string/btcalc"
         android:textColor="@color/cor_fonte"
-        android:textSize="36sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,23 +58,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="o" />
-
-    <ImageButton
-        android:id="@+id/alarmeID"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:contentDescription="@string/alarme"
-        android:padding="@dimen/appbar_padding_top"
-        android:scaleType="fitCenter"
-        android:src="@drawable/alarme"
-        android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
-        tools:targetApi="lollipop" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"

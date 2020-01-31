@@ -61,44 +61,9 @@ public class MainActivity extends AppCompatActivity
         btnCalcSaidaHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                if (!sharedPreferences.getBoolean("primeiroacesso", false)) {
-                    dialog = new AlertDialog.Builder(MainActivity.this);
-                    dialog.setTitle("Configuração de Pausas Extras");
-                    dialog.setMessage("Você costuma fazer pausas além do almoço?");
-                    dialog.setCancelable(false);
-                    dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Não faz pausas extras
-                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean("AtivaPausa", false);
-                            editor.commit();
-                            startActivity(new Intent(MainActivity.this, TabActivity.class));
-                        }
-                    });
-                    dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Faz pausas extras
-                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean("AtivaPausa", true);
-                            editor.commit();
-                            startActivity(new Intent(MainActivity.this, TabActivity.class));
-                        }
-                    });
-                    dialog.create();
-                    dialog.show();
-                    editor.putBoolean("primeiroacesso", true);
-                    editor.commit();
-                }else {
                     Intent configIntent = new Intent(MainActivity.this, TabActivity.class);
                     configIntent.putExtra("key", 1);
                     startActivity(configIntent);
-                }
             }
         });
 
@@ -106,44 +71,9 @@ public class MainActivity extends AppCompatActivity
         btnCalcTotalHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
-                if (!sharedPreferences.getBoolean("primeiroacesso", false)) {
-                    dialog = new AlertDialog.Builder(MainActivity.this);
-                    dialog.setTitle("Configuração de Pausas Extras");
-                    dialog.setMessage("Você costuma fazer pausas além do almoço?");
-                    dialog.setCancelable(false);
-                    dialog.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Não faz pausas extras
-                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean("AtivaPausa", false);
-                            editor.commit();
-                            startActivity(new Intent(MainActivity.this, TabActivity.class));
-                        }
-                    });
-                    dialog.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //Faz pausas extras
-                            SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putBoolean("AtivaPausa", true);
-                            editor.commit();
-                            startActivity(new Intent(MainActivity.this, TabActivity.class));
-                        }
-                    });
-                    dialog.create();
-                    dialog.show();
-                    editor.putBoolean("primeiroacesso", true);
-                    editor.commit();
-                }else {
                     Intent configIntent = new Intent(MainActivity.this, TabActivity.class);
                     configIntent.putExtra("key", 2);
                     startActivity(configIntent);
-                }
             }
         });
 

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="tamanho_app">15sp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
@@ -16,6 +15,6 @@
     <dimen name="dots_margin_bottom">20dp</dimen>
     <dimen name="img_width_height">120dp</dimen>
     <dimen name="slide_title">30dp</dimen>
-    <dimen name="slide_desc">16dp</dimen>
+    <dimen name="slide_desc">18dp</dimen>
     <dimen name="desc_padding">40dp</dimen>
 </resources>

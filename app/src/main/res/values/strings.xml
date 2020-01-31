@@ -61,23 +61,10 @@
     <string name="next">PROXIMO</string>
     <string name="skip">PULAR</string>
     <string name="start">FINALIZAR</string>
-    <string name="slide_1_desc">Bem vindo ao seu app para calcular as horas trabalhadas! \n\nConheça as principais funcionalidades e configure o seu app  :)</string>
-    <string name="slide_2_desc">Toque no horário de cada intervalo para editar e escolha as horas no relógio. \nVocê poode deslizar para os lados se precisar voltar ou avançar.</string>
-    <string name="slide_3_desc">Para incluir mais pausas, toque nos horários para editar e depois no botão ADICIONAR PAUSA \n Repita quantas vezes precisar e se errar toque na lixeira para limpar tudo.</string>
-    <string name="slide_4_desc">Na home você acompanha a última hora de saída calculada e também a sua carga horária definida nas configurações</string>
-    <!-- temp -->
-
-
-
-    <string name="slide_3_title">Great Discounts</string>
-
-
-    <string name="slide_4_title">World Travel</string>
-
-
-    <string name="slide_5_title">World Travel 5</string>
-    <string name="slide_5_desc">Book tickets of any transportation and travel the world! 555</string>
-
-    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
-    <string name="play_again">Play Again</string>
+    <string name="slide_1_desc">Bem vindo ao seu app para calcular as horas trabalhadas :)</string>
+    <string name="slide_2_desc">Toque no horário para editar.\nDeslize para os lados se precisar voltar ou avançar</string>
+    <string name="slide_3_desc">Adicione quantas pausas precisar\nToque na lixeira se precisar excluir</string>
+    <string name="slide_4_desc">Você pode definir um alarme para não esquecer a hora da saída</string>
+    <string name="slide_5_desc">Ajuste a quantidade de horas trabalhadas e ative/desative as pausas extras</string>
+    <string name="criar_alarme">Criar Alarme</string>
 </resources>
