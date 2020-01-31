@@ -20,7 +20,7 @@ import java.util.Calendar;
 public class Entrada extends Fragment {
 
     private EditText horaEntrada;
-    private ImageView imageViewEntrada, slideImage;
+    private ImageView imageViewEntrada;
     private static final String SETTINGS = "Settings";
     private TimePickerDialog timePickerDialog;
     private Calendar calendar;
@@ -38,9 +38,6 @@ public class Entrada extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_entrada, container, false);
-
-        slideImage = view.findViewById(R.id.slidingID);
-        animar();
         horaEntrada = view.findViewById(R.id.horaEntradaID);
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(SETTINGS, 0);
         if(sharedPreferences.contains("Entrada")){
@@ -80,17 +77,4 @@ public class Entrada extends Fragment {
         return view;
 
     }
-
-    public void animar() {
-        ObjectAnimator fadeIn = ObjectAnimator.ofFloat(slideImage, "alpha",1);
-        ObjectAnimator animacao = ObjectAnimator.ofFloat(slideImage, "rotation", 0f, -30f, 0f, 30f, 0f, -30f, 0f, 30f);
-        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(slideImage, "alpha",0);
-        fadeIn.setDuration(0);
-        animacao.setDuration(duracaoAnimacao);
-        fadeOut.setDuration(duracaoAnimacao);
-        AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(fadeIn,animacao,fadeOut);
-        animatorSet.start();
-    }
-
 }

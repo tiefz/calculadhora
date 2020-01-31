@@ -12,7 +12,12 @@
   <component name="ChangeListManager">
     <list default="true" id="c2a4c228-fae0-44a8-bdf3-7da54b1cccaf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/TabActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/TabActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +64,7 @@
     <findStrings>
       <find>TabActivity</find>
       <find>displa</find>
+      <find>proximo</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -88,13 +94,9 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_total_horas_trabalhadas.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/TotalHorasTrabalhadas.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/TabActivity2.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/AlmocoR.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/AlmocoS.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_pausa_extra.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/HoraTotalTrabalhada.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_hora_total_trabalhada.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
@@ -116,10 +118,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_saida_ht.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/TabActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java" />
       </list>
     </option>
   </component>
@@ -134,6 +140,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,9 +152,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -277,7 +283,7 @@
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.50212765" side_tool="true" weight="0.17739628" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49787235" weight="0.17739628" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49787235" visible="true" weight="0.17739628" />
       <window_info id="Structure" order="2" sideWeight="0.50070924" side_tool="true" weight="0.17739628" />
       <window_info id="Favorites" order="3" sideWeight="0.50070924" side_tool="true" weight="0.17739628" />
       <window_info id="Build Variants" order="4" sideWeight="0.50070924" side_tool="true" weight="0.17739628" />
@@ -379,16 +385,6 @@
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="61" column="11" selection-start-line="61" selection-start-column="11" selection-end-line="61" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_main.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
@@ -402,13 +398,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="21" column="32" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -445,25 +434,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="58" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -604,26 +578,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1310">
-          <caret line="116" column="19" lean-forward="true" selection-start-line="116" selection-start-column="19" selection-end-line="116" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4209#5963#0" expanded="true" />
-            <element signature="e#5962#5963#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saida_ht.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor">
@@ -664,6 +618,58 @@
             <element signature="e#1869#1902#0" expanded="true" />
             <element signature="e#1943#1958#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_entrada.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="58" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/Entrada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="23" column="54" lean-forward="true" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/PausaExtra.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1898#2085#0" expanded="true" />
+            <element signature="e#2084#2085#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaCalculada.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="184" column="50" lean-forward="true" selection-start-line="184" selection-start-column="50" selection-end-line="184" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_saida.xml">
+      <provider selected="true" editor-type-id="android-designer2" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/insertkoin/calculadhora/SaidaHT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="105" column="40" lean-forward="true" selection-start-line="105" selection-start-column="40" selection-end-line="105" selection-end-column="40" />
         </state>
       </provider>
     </entry>
