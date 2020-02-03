@@ -130,6 +130,7 @@ public class SaidaHT extends Fragment {
                 startActivity(intent);
                 botaoCalcHT.setVisibility(View.INVISIBLE);
                 imageViewSaidaHT.setVisibility(View.VISIBLE);
+                getActivity().finish();
             }
         });
 

@@ -26,12 +26,8 @@ import java.util.ArrayList;
  */
 public class SaidaCalculada extends Fragment {
 
-    private TextView resultadoSaida;
-    private TextView resumoEntrada;
-    private TextView resumoAlmocoS;
-    private TextView resumoAlmocoR;
-    private Button botaoCalc;
-    private ImageButton alarme;
+    private TextView resultadoSaida, resumoEntrada, resumoAlmocoS, resumoAlmocoR, resumoPausasExtras;
+    private Button botaoCalc, alarme;
     private static final String SETTINGS = "Settings";
     private static final String HORA_DE_CALCULO = "08:48";
     private AlertDialog.Builder dialog;
@@ -54,6 +50,7 @@ public class SaidaCalculada extends Fragment {
         resumoEntrada = view.findViewById(R.id.resumoEntrada);
         resumoAlmocoS = view.findViewById(R.id.resumoAlmocoS);
         resumoAlmocoR = view.findViewById(R.id.resumoAlmocoR);
+        resumoPausasExtras = view.findViewById(R.id.resumoPausasExtras);
 
         botaoCalc = view.findViewById(R.id.botaoCalcID);
         botaoCalc.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +131,7 @@ public class SaidaCalculada extends Fragment {
                         openNewAlarm.putExtra(AlarmClock.EXTRA_HOUR, partHora);
                         openNewAlarm.putExtra(AlarmClock.EXTRA_MINUTES, partMinuto);
                         startActivity(openNewAlarm);
+                        getActivity().finish();
                     }
                 });
                 dialog.create();
@@ -191,6 +189,7 @@ public class SaidaCalculada extends Fragment {
             resumoEntrada.setText(sharedPreferences.getString("Entrada", "00:00"));
             resumoAlmocoS.setText(sharedPreferences.getString("AlmocoS", "00:00"));
             resumoAlmocoR.setText(sharedPreferences.getString("AlmocoR", "00:00"));
+            resumoPausasExtras.setText(sharedPreferences.getString("PausasExtras", "00:00"));
         }
     }
 

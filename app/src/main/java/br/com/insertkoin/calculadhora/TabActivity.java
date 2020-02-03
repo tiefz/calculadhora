@@ -51,8 +51,15 @@ public class TabActivity extends AppCompatActivity {
 
         Bundle b = getIntent().getExtras();
 
-        if(b != null)
+        if(b != null) {
             valorRecebido = b.getInt("key");
+        }
+
+        if(valorRecebido > 1) {
+            getSupportActionBar().setTitle(R.string.calcular_hora_trabalhada);
+        } else {
+            getSupportActionBar().setTitle(R.string.btcalc);
+        }
 
 
     }
