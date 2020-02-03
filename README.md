@@ -16,6 +16,11 @@ Em breve novas funcionalidades como: Calculo de hora trabalhada no mês, banco d
 
 ### Lançamentos:
 
+#### Versão 1.2.1
+- Implementação de tela de boas vindas para primeiro acesso com Activity e Fragment
+- Ajuste no tamanho da fonte dos botões de calculo e alteração do botão de alarme de imagem para texto
+- Ajuste no botão Next da tela de pausas extras para ficar sempre visível 
+
 #### Versão 1.2.0
 - Implementação de fragment para calcular a hora total trabalhada
 - Implementação de lógica através de intent e bundle para mapear a opção do usuário e ativar o ultimo fragment que vai calcular a saída ou a hora total trabalhada
