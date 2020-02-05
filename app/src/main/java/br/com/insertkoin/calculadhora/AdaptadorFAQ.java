@@ -13,13 +13,15 @@ import java.util.List;
 public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.PerguntasViewHolder> {
 
     private Context mCtx;
-    private List<String> listaPerguntas;
-    private List<String> listaRespostas;
+    //private List<String> listaPerguntas;
+    //private List<String> listaRespostas;
+    private List<FAQ> listaFAQ;
 
-    public AdaptadorFAQ(Context mCtx, List<String> listaPerguntas, List<String> listaRespostas) {
+    public AdaptadorFAQ(Context mCtx, List<FAQ> listaFAQ) {
         this.mCtx = mCtx;
-        this.listaPerguntas = listaPerguntas;
-        this.listaRespostas = listaRespostas;
+        //this.listaPerguntas = listaPerguntas;
+        //this.listaRespostas = listaRespostas;
+        this.listaFAQ = listaFAQ;
     }
 
     @Override
@@ -31,24 +33,25 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.PerguntasVie
     }
 
     @Override
-    public void onBindViewHolder(PerguntasViewHolder holder, int position) {
-        String faq = listaPerguntas.get(position);
-        String resp = listaRespostas.get(position);
-
-        holder.helpTitle.setText(faq);
-        holder.helpAnswer.setText(resp);
+    public void onBindViewHolder(PerguntasViewHolder holder, final int position) {
+        //String faq = listaPerguntas.get(position);
+        //String resp = listaRespostas.get(position);
+        final FAQ faq = listaFAQ.get(position);
+        holder.bind(faq);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                System.out.println("click");
+                boolean aberto = faq.isAberto();
+                faq.setAberto(!aberto);
+                notifyItemChanged(position);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return listaPerguntas.size();
+        return listaFAQ.size();
     }
 
     class PerguntasViewHolder extends RecyclerView.ViewHolder {
@@ -63,6 +66,17 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.PerguntasVie
             helpAnswer = itemView.findViewById(R.id.helpAnswer);
             helpIcon = itemView.findViewById(R.id.helpIcon);
         }
+
+        private void bind(FAQ faq) {
+            boolean aberto = faq.isAberto();
+
+            helpAnswer.setVisibility(aberto ? View.VISIBLE : View.GONE);
+
+            helpTitle.setText(faq.getPergunta());
+            helpAnswer.setText(faq.getResposta());
+        }
+
+
     }
 
 }

@@ -44,8 +44,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/helpTitle"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="50dp"
+                android:layout_toEndOf="@id/helpIcon"
                 android:layout_toRightOf="@id/helpIcon"
+                android:padding="5dp"
                 android:text="@string/slide_5_desc"
                 android:textColor="@color/cor_fonte" />
 

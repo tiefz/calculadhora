@@ -13,6 +13,7 @@ public class Ajuda extends AppCompatActivity {
 
     List<String> listaPerguntas;
     List<String> listaRespostas;
+    List<FAQ> listaObjetoFAQ;
     RecyclerView recyclerView;
 
     @Override
@@ -21,6 +22,7 @@ public class Ajuda extends AppCompatActivity {
         setContentView(R.layout.activity_ajuda);
 
         getSupportActionBar().setTitle(R.string.ajuda);
+        listaObjetoFAQ = new ArrayList<>();
 
         recyclerView = findViewById(R.id.recyclerViewFAQ);
         recyclerView.setHasFixedSize(true);
@@ -31,7 +33,11 @@ public class Ajuda extends AppCompatActivity {
         listaPerguntas = Arrays.asList(getResources().getStringArray(R.array.faq));
         listaRespostas = Arrays.asList(getResources().getStringArray(R.array.resp));
 
-        AdaptadorFAQ adapter = new AdaptadorFAQ(this, listaPerguntas, listaRespostas);
+        for(int i = 0; i < listaPerguntas.size(); i++) {
+            listaObjetoFAQ.add(new FAQ(listaPerguntas.get(i),listaRespostas.get(i)));
+        }
+
+        AdaptadorFAQ adapter = new AdaptadorFAQ(this, listaObjetoFAQ);
         recyclerView.setAdapter(adapter);
     }
 }
