@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WelcomeActivity"
+        <activity android:name=".Ajuda"></activity>
+        <activity
+            android:name=".WelcomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".HoraTotalTrabalhada"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".HoraTotalTrabalhada"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation"

@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_calculadHoraID) {
-            Intent configIntent = new Intent(this, TabActivity.class);
+            Intent configIntent = new Intent(this, Ajuda.class);
             configIntent.putExtra("key", 1);
             startActivity(configIntent);
         } else if (id == R.id.nav_calculaTempoID) {

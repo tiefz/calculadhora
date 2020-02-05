@@ -67,4 +67,50 @@
     <string name="slide_4_desc">Você pode definir um alarme para não esquecer a hora da saída</string>
     <string name="slide_5_desc">Ajuste a quantidade de horas trabalhadas e ative/desative as pausas extras</string>
     <string name="criar_alarme">Criar Alarme</string>
+    <string name="ajuda">Ajuda - FAQ</string>
+
+    <string-array name="faq">
+        <item>Pergunta 1</item>
+        <item>Pergunta 2</item>
+        <item>Pergunta 3</item>
+        <item>Pergunta 4</item>
+        <item>Pergunta 5</item>
+        <item>Pergunta 6</item>
+        <item>Pergunta 7</item>
+        <item>Pergunta 8</item>
+        <item>Pergunta 9</item>
+        <item>Pergunta 10</item>
+        <item>Pergunta 11</item>
+        <item>Pergunta 12</item>
+        <item>Pergunta 13</item>
+        <item>Pergunta 14</item>
+        <item>Pergunta 15</item>
+        <item>Pergunta 16</item>
+        <item>Pergunta 17</item>
+        <item>Pergunta 18</item>
+        <item>Pergunta 19</item>
+        <item>Pergunta 20</item>
+    </string-array>
+    <string-array name="resp">
+        <item>Resposta 1</item>
+        <item>Resposta 2</item>
+        <item>Resposta 3</item>
+        <item>Resposta 4</item>
+        <item>Resposta 5</item>
+        <item>Resposta 6</item>
+        <item>Resposta 7</item>
+        <item>Resposta 8</item>
+        <item>Resposta 9</item>
+        <item>Resposta 10</item>
+        <item>Resposta 11</item>
+        <item>Resposta 12</item>
+        <item>Resposta 13</item>
+        <item>Resposta 14</item>
+        <item>Resposta 15</item>
+        <item>Resposta 16</item>
+        <item>Resposta 17</item>
+        <item>Resposta 18</item>
+        <item>Resposta 19</item>
+        <item>Resposta 20</item>
+    </string-array>
 </resources>
