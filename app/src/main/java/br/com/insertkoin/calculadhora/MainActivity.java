@@ -132,6 +132,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             Intent configIntent = new Intent(this, ConfigActivity.class);
             startActivity(configIntent);
+        } else if (id == R.id.nav_help) {
+            Intent configIntent = new Intent(this, Ajuda.class);
+            startActivity(configIntent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

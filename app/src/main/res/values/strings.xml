@@ -67,4 +67,7 @@
     <string name="slide_4_desc">Você pode definir um alarme para não esquecer a hora da saída</string>
     <string name="slide_5_desc">Ajuste a quantidade de horas trabalhadas e ative/desative as pausas extras</string>
     <string name="criar_alarme">Criar Alarme</string>
+    <string name="ajuda">Ajuda - FAQ</string>
+
+
 </resources>
