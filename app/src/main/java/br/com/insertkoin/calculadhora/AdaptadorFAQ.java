@@ -13,30 +13,23 @@ import java.util.List;
 public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.PerguntasViewHolder> {
 
     private Context mCtx;
-    //private List<String> listaPerguntas;
-    //private List<String> listaRespostas;
     private List<FAQ> listaFAQ;
 
     public AdaptadorFAQ(Context mCtx, List<FAQ> listaFAQ) {
         this.mCtx = mCtx;
-        //this.listaPerguntas = listaPerguntas;
-        //this.listaRespostas = listaRespostas;
         this.listaFAQ = listaFAQ;
     }
 
     @Override
     public PerguntasViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //inflating and returning our view holder
         LayoutInflater inflater = LayoutInflater.from(mCtx);
         View view = inflater.inflate(R.layout.lista_faq, null);
         return new PerguntasViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(PerguntasViewHolder holder, final int position) {
-        //String faq = listaPerguntas.get(position);
-        //String resp = listaRespostas.get(position);
-        final FAQ faq = listaFAQ.get(position);
+    public void onBindViewHolder(final PerguntasViewHolder holder, final int position) {
+        final FAQ faq = listaFAQ.get(holder.getAdapterPosition());
         holder.bind(faq);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -44,7 +37,7 @@ public class AdaptadorFAQ extends RecyclerView.Adapter<AdaptadorFAQ.PerguntasVie
             public void onClick(View v) {
                 boolean aberto = faq.isAberto();
                 faq.setAberto(!aberto);
-                notifyItemChanged(position);
+                notifyItemChanged(holder.getAdapterPosition());
             }
         });
     }
