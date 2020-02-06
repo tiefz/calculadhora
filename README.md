@@ -18,6 +18,9 @@ Em breve novas funcionalidades como: Calculo de hora trabalhada no mês, banco d
 
 ### Lançamentos:
 
+#### Versão 1.2.2
+- Implementação de tela de Ajuda / FAQ com Recyclerview e Cardview
+
 #### Versão 1.2.1
 - Implementação de tela de boas vindas para primeiro acesso com Activity e Fragment
 - Ajuste no tamanho da fonte dos botões de calculo e alteração do botão de alarme de imagem para texto

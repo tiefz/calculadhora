@@ -15,7 +15,7 @@
     <color name="bg_screen2">#8cf9eb</color>
     <color name="bg_screen3">#20d2bb</color>
     <color name="bg_screen4">#009688</color>
-    <color name="bg_screen5">#004d40</color>
+    <color name="bg_screen5">#004D40</color>
 
     <color name="dot_dark_screen1">#004D40</color>
     <color name="dot_dark_screen2">#00695C</color>
