@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity
 
     private ImageView logoMain;
     private TextView ultimaHora;
-    private TextView horaAjustada;
+//    private TextView horaAjustada;
     private Button btnCalcTotalHome, btnCalcSaidaHome;
     private AlertDialog.Builder dialog;
     private static final String SETTINGS = "Settings";
@@ -52,11 +52,11 @@ public class MainActivity extends AppCompatActivity
         if(sharedPreferences.contains("UltimaHora")) {
             ultimaHora.setText(sharedPreferences.getString("UltimaHora", "00:00"));
         }
-        horaAjustada = findViewById(R.id.horaAjustadaID);
-        horaAjustada.setText("08:48");
-        if(sharedPreferences.contains("HoraDeCalculo")) {
-            horaAjustada.setText(sharedPreferences.getString("HoraDeCalculo", "08:48"));
-        }
+//        horaAjustada = findViewById(R.id.horaAjustadaID);
+//        horaAjustada.setText("08:48");
+//        if(sharedPreferences.contains("HoraDeCalculo")) {
+//            horaAjustada.setText(sharedPreferences.getString("HoraDeCalculo", "08:48"));
+//        }
         btnCalcSaidaHome = findViewById(R.id.btnCalcSaidaHomeID);
         btnCalcSaidaHome.setOnClickListener(new View.OnClickListener() {
             @Override

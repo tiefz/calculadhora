@@ -4,65 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/Cinza_300"
+    android:background="@color/bg_cinza"
     android:padding="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <Button
-        android:id="@+id/btnCalcTotalHomeID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/quero_total"
-        android:textAllCaps="true"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalcSaidaHomeID"
-        tools:targetApi="lollipop" />
-
-    <Button
-        android:id="@+id/btnCalcSaidaHomeID"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/buttons"
-        android:backgroundTint="@color/bg_green"
-        android:padding="@dimen/activity_vertical_margin"
-        android:text="@string/quero_saida"
-        android:textAllCaps="true"
-        android:textColor="@color/cor_fonte"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:targetApi="lollipop" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/quer_fazer"
-        android:textColor="@color/bg_cinza"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logoMainID" />
-
     <TextView
         android:id="@+id/textView12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@color/Cinza_500"
         android:gravity="center"
         android:padding="5dp"
@@ -71,54 +23,7 @@
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstDivider" />
-
-    <View
-        android:id="@+id/firstDivider"
-        android:layout_width="fill_parent"
-        android:layout_height="2dp"
-        android:background="@color/Cinza_500"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@color/Cinza_500"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="@string/display2"
-        android:textColor="@color/cor_fonte"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ultimaHoraID" />
-
-    <TextView
-        android:id="@+id/horaAjustadaID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/zerohora"
-        android:textColor="@color/bg_cinza"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
-
-    <ImageView
-        android:id="@+id/logoMainID"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="16dp"
-        android:contentDescription="@string/app_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/calc512" />
 
     <TextView
         android:id="@+id/ultimaHoraID"
@@ -126,8 +31,8 @@
         android:layout_height="0dp"
         android:padding="@dimen/nav_header_vertical_spacing"
         android:text="@string/zerohora"
-        android:textColor="@color/bg_texto"
-        android:textSize="18sp"
+        android:textColor="@color/cor_fonte"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:fontFamily="sans-serif-condensed-medium"
         app:layout_constraintEnd_toEndOf="parent"
@@ -139,5 +44,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintGuide_percent="0.8" />
+
+    <android.support.v7.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:cardBackgroundColor="@color/Cinza_500"
+        app:cardCornerRadius="150dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logoButtonHome"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/calc512" />
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="30dp"
+            android:text="@string/calcular"
+            android:textAllCaps="true"
+            android:textColor="@color/cor_fonte"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="normal"
+            app:fontFamily="sans-serif-black" />
+
+    </android.support.v7.widget.CardView>
+
 </android.support.constraint.ConstraintLayout>
