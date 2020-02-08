@@ -18,6 +18,10 @@ Em breve novas funcionalidades como: Calculo de hora trabalhada no mês, banco d
 
 ### Lançamentos:
 
+#### Versão 1.2.3
+- Remodelagem da home para facilitar o fluxo e diminuir a quantidade de informação desnecessária
+- Unificação do fluxo de calculo de saída e hora extra em um único fragment no final para reduzir as opções na home
+
 #### Versão 1.2.2
 - Implementação de tela de Ajuda / FAQ com Recyclerview e Cardview
 
