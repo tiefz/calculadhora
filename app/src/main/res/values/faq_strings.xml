@@ -2,7 +2,6 @@
 <resources>
     <string-array name="faq">
         <item>O que é a CalculadHora?</item>
-        <item>Pra que foi desenvolvida a CalculadHora?</item>
         <item>O que são Pausas Extras?</item>
         <item>Eu fiz mais de uma Pausa Extra além do intervalo do almoço, como incluo mais pausas?</item>
         <item>Inseri o horário de pausa incorreto, como posso alterar?</item>
@@ -19,9 +18,8 @@
         <item>Quem somos e sobre a CalculadHora</item>
     </string-array>
     <string-array name="resp">
-        <item>CalculadHora é um app para calcular as horas trabalhadas. \nCom esse app, posso calcular a hora que devo sair do trabalho ou quantas horas eu trabalhei no dia. \nTambém consigo saber se meu banco de horas ficou positivo ou negativo. </item>
-        <item>Desenvolvi o app pois minha carga horária é de 8:48 minutos e o meu horário é flexível, ou seja posso entrar a qualquer horário do dia e por esse motivo eu sempre tive dificuldades de saber quantas horas trabalhei e que horas eu deveria bater o ponto de saída, principalmente em dias que entrei em horários quebrados (ex 9:27) e tirei mais de uma pausa no dia.</item>
-        <item>Quando desenvolvi o app, preferi utilizar intervalos com nomes amigáveis, por exemplo Saída para almoço e retorno do almoço, ao invés de simplesmente incluir uma faixa de intervalo como a maioria dos app fazem. Porém, muitas pessoas fazem pausas além do intervalo de almoço, como por exemplo 10 minutos de pausa para um café ou cigarro. Por esse motivo, criei uma tela para inserir a entrada e a volta dessas pequenas pausas para que tudo possa ser contabilizado no final.</item>
+        <item>CalculadHora é um app para calcular que horas eu preciso bater o ponto de saída para cumprir a carga horária do dia no trabalho. \nTambém é possível calcular quantas horas você trabalhou no dia, bem como o banco de horas se foi positivo (hora extra) ou negativo.</item>
+        <item>Normalmente, durante o expediente fazemos um intervalo de almoço que consideramos como uma pausa para que possamos calcular as horas trabalhadas. Porém, muitas pessoas fazem pausas além do intervalo de almoço, como por exemplo 10 minutos de pausa para um café ou cigarro. Por esse motivo, criei uma tela para inserir a entrada e a volta dessas pequenas pausas para que tudo possa ser contabilizado no final.</item>
         <item>A tela de Pausas Extras armazena as pausas inseridas e exibe o total. Se precisar inserir mais pausas, repita o processo de digitar os valores e clicar no botão de adicionar pausas quantas vezes forem necessários. O app irá somar as pausas e exibir o total. Assim que o calculo final for executado, todas as pausas serão apagadas.</item>
         <item>Não é possível editar a quantidade de pausa inserido, mas é possível excluir e adicionar novamente. \nAssim que a pausa for registrada na tela de Pausas Extras, abaixo do texto que exibe a quantidade de pausas existe um botão no formato de uma lixeira que serve para limpar as pausas inseridas.</item>
         <item>Caso você não precise incluir uma pausa extra, você pode avançar o fluxo de calculo clicando no botão PRÓXIMO ou  simplesmente deslizar a tela para a esquerda. \nAgora caso você nunca faça pausas extras e realmente não precise dessa tela, é possível desativá-la nas configurações do app. Para isso, na tela inicial, toque nos 3 pontinhos da barra superior, ou no menu lateral selecione a opção AJUSTES. Na tela de ajustes, desmarque a opção PAUSAS EXTRAS e em seguida, clique em salvar.</item>
