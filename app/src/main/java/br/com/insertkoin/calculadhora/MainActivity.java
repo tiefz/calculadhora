@@ -1,6 +1,7 @@
 package br.com.insertkoin.calculadhora;
 
-import android.content.DialogInterface;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,24 +9,23 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ImageView logoMain;
+    private ImageView logoHome, clockmark;
     private TextView ultimaHora;
-    private TextView horaAjustada;
-    private Button btnCalcTotalHome, btnCalcSaidaHome;
-    private AlertDialog.Builder dialog;
+    private CardView cardview;
     private static final String SETTINGS = "Settings";
 
     @Override
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        logoMain = findViewById(R.id.logoMainID);
+        clockmark = findViewById(R.id.clockMark);
 
         ultimaHora = findViewById(R.id.ultimaHoraID);
         ultimaHora.setText(R.string.zerohora);
@@ -52,30 +52,18 @@ public class MainActivity extends AppCompatActivity
         if(sharedPreferences.contains("UltimaHora")) {
             ultimaHora.setText(sharedPreferences.getString("UltimaHora", "00:00"));
         }
-        horaAjustada = findViewById(R.id.horaAjustadaID);
-        horaAjustada.setText("08:48");
-        if(sharedPreferences.contains("HoraDeCalculo")) {
-            horaAjustada.setText(sharedPreferences.getString("HoraDeCalculo", "08:48"));
-        }
-        btnCalcSaidaHome = findViewById(R.id.btnCalcSaidaHomeID);
-        btnCalcSaidaHome.setOnClickListener(new View.OnClickListener() {
+
+        cardview = findViewById(R.id.cardViewHome);
+        cardview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent configIntent = new Intent(MainActivity.this, TabActivity.class);
-                    configIntent.putExtra("key", 1);
+                Intent configIntent = new Intent(MainActivity.this, TabActivity.class);
+                    configIntent.putExtra("key", 3);
                     startActivity(configIntent);
             }
         });
 
-        btnCalcTotalHome = findViewById(R.id.btnCalcTotalHomeID);
-        btnCalcTotalHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    Intent configIntent = new Intent(MainActivity.this, TabActivity.class);
-                    configIntent.putExtra("key", 2);
-                    startActivity(configIntent);
-            }
-        });
+        rotacao();
 
     }
 
@@ -141,4 +129,16 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void rotacao() {
+        RotateAnimation rotate = new RotateAnimation(
+                0, 360,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+        );
+        rotate.setDuration(60000);
+        rotate.setRepeatCount(Animation.INFINITE);
+        clockmark.startAnimation(rotate);
+    }
+
 }

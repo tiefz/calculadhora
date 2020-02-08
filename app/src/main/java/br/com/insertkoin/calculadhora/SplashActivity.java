@@ -26,11 +26,9 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
 
                 SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+
                 if (!sharedPreferences.getBoolean("primeiroacesso", false)) {
                     startActivity(new Intent(getBaseContext(), WelcomeActivity.class));
-                    editor.putBoolean("primeiroacesso", true);
-                    editor.commit();
                 }else {
                     startActivity(new Intent(getBaseContext(), MainActivity.class));
                 }

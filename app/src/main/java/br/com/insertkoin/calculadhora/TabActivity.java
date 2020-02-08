@@ -46,6 +46,7 @@ public class TabActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(TabActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -55,7 +56,9 @@ public class TabActivity extends AppCompatActivity {
             valorRecebido = b.getInt("key");
         }
 
-        if(valorRecebido > 1) {
+        if(valorRecebido == 3) {
+            getSupportActionBar().setTitle(R.string.app_name);
+        } else if(valorRecebido == 2){
             getSupportActionBar().setTitle(R.string.calcular_hora_trabalhada);
         } else {
             getSupportActionBar().setTitle(R.string.btcalc);
@@ -142,7 +145,9 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new AlmocoR();
                         break;
                     case 3:
-                        if(valorRecebido > 1) {
+                        if(valorRecebido == 3) {
+                            fragment = new SaidaCalculadaCombo();
+                        } else if(valorRecebido == 2){
                             fragment = new SaidaHT();
                         } else {
                             fragment = new SaidaCalculada();
@@ -166,7 +171,9 @@ public class TabActivity extends AppCompatActivity {
                         fragment = new PausaExtra();
                         break;
                     case 4:
-                        if(valorRecebido > 1) {
+                        if(valorRecebido == 3) {
+                            fragment = new SaidaCalculadaCombo();
+                        } else if(valorRecebido == 2){
                             fragment = new SaidaHT();
                         } else {
                             fragment = new SaidaCalculada();

@@ -2,6 +2,7 @@ package br.com.insertkoin.calculadhora;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
@@ -30,6 +31,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private Button btnSkip, btnNext;
     private ImageView tutorialGIF01, tutorialGIF02, tutorialGIF03;
     private AnimationDrawable animation1, animation2, animation3;
+    private static final String SETTINGS = "Settings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +108,10 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void launchSetupScreen() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SETTINGS, 0);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("primeiroacesso", true);
+        editor.commit();
         startActivity(new Intent(WelcomeActivity.this, ConfigActivity.class));
         finish();
     }

@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#009688</color>
     <color name="colorPrimaryDark">#004d40</color>
-    <color name="colorAccent">#00897b</color>
+    <color name="colorAccent">#00897B</color>
     <color name="bg_cinza">#616161</color>
     <color name="cor_fonte">#F5F5F5</color>
     <color name="bg_texto">#424242</color>
@@ -13,7 +13,7 @@
 
     <color name="bg_screen1">#F5F5F5</color>
     <color name="bg_screen2">#8cf9eb</color>
-    <color name="bg_screen3">#20d2bb</color>
+    <color name="bg_screen3">#20D2BB</color>
     <color name="bg_screen4">#009688</color>
     <color name="bg_screen5">#004D40</color>
 

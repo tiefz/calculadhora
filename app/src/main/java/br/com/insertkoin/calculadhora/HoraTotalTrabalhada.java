@@ -114,6 +114,7 @@ public class HoraTotalTrabalhada extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     startActivity(new Intent(HoraTotalTrabalhada.this, MainActivity.class));
+                    finish();
                 }
             });
 
