@@ -30,7 +30,7 @@
     <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="calcular_hora_trabalhada">Calcular Hora Trabalhada</string>
+    <string name="calcular_hora_trabalhada">Calcular Hora Extra</string>
     <string name="carga_horaria">Carga Horária</string>
     <string name="horas">Horas</string>
     <string name="proximo">Próximo</string>
@@ -68,6 +68,7 @@
     <string name="slide_5_desc">Ajuste a quantidade de horas trabalhadas e ative/desative as pausas extras</string>
     <string name="criar_alarme">Criar Alarme</string>
     <string name="ajuda">Ajuda - FAQ</string>
+    <string name="ou">OU</string>
 
 
 </resources>
