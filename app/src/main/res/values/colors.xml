@@ -1,47 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#009688</color>
-    <color name="colorPrimaryDark">#004d40</color>
-    <color name="colorAccent">#00897B</color>
-    <color name="bg_cinza">#616161</color>
-    <color name="cor_fonte">#F5F5F5</color>
-    <color name="bg_texto">#424242</color>
-    <color name="bg_green">#00897b</color>
-    <color name="Cinza_500">#9E9E9E</color>
-    <color name="Cinza_300">#EEEEEE</color>
-    <color name="vermelho">#F44336</color>
-
-    <color name="bg_screen1">#F5F5F5</color>
-    <color name="bg_screen2">#8cf9eb</color>
-    <color name="bg_screen3">#20D2BB</color>
-    <color name="bg_screen4">#009688</color>
-    <color name="bg_screen5">#004D40</color>
-
-    <color name="dot_dark_screen1">#004D40</color>
-    <color name="dot_dark_screen2">#00695C</color>
-    <color name="dot_dark_screen3">#00796B</color>
-    <color name="dot_dark_screen4">#00897B</color>
-    <color name="dot_dark_screen5">#009688</color>
-
-    <color name="dot_light_screen1">#26A69A</color>
-    <color name="dot_light_screen2">#4DB6AC</color>
-    <color name="dot_light_screen3">#80CBC4</color>
-    <color name="dot_light_screen4">#B2DFDB</color>
-    <color name="dot_light_screen5">#E0F2F1</color>
-
-    <array name="array_dot_active">
-        <item>@color/dot_light_screen1</item>
-        <item>@color/dot_light_screen2</item>
-        <item>@color/dot_light_screen3</item>
-        <item>@color/dot_light_screen4</item>
-        <item>@color/dot_light_screen5</item>
-    </array>
-
-    <array name="array_dot_inactive">
-        <item>@color/dot_dark_screen1</item>
-        <item>@color/dot_dark_screen2</item>
-        <item>@color/dot_dark_screen3</item>
-        <item>@color/dot_dark_screen4</item>
-        <item>@color/dot_dark_screen5</item>
-    </array>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
 </resources>
