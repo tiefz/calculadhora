@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CalculadHora">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Launcher"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
