@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">CalculadHora</string>
+    <string name="app_name">Calculadhora</string>
+
+    <string name="tv_start_title">O que você quer fazer?</string>
+    <string name="exit_calc_title">Calcular a hora de saída</string>
+    <string name="total_calc">Calcular o total de horas trabalhadas</string>
+    <string name="home_last_exit_title">Último horário de saída calculado: %s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
