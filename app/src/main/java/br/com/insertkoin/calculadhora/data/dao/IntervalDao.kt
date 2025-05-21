@@ -1,9 +1,9 @@
 package br.com.insertkoin.calculadhora.data.dao
 
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.OnConflictStrategy
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import br.com.insertkoin.calculadhora.data.model.IntervalEntity
 import kotlinx.coroutines.flow.Flow
