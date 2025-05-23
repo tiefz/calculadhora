@@ -63,12 +63,15 @@ fun HomeScreen(
     breakStart = interval.breakStart
     breakEnd = interval.breakEnd
     end = interval.end
+    total = viewModel.calculateTotalTime(intervals)
 
     val context = LocalContext.current
     var timePickerField by remember { mutableStateOf<String?>(null) }
 
-    fun showTimePicker(initial: String, onTimeSelected: (String) -> Unit) {
+    fun showTimePicker(onTimeSelected: (String) -> Unit) {
         val cal = Calendar.getInstance()
+        val initial =
+            String.format("%02d:%02d", cal.get(Calendar.HOUR_OF_DAY), cal.get(Calendar.MINUTE))
         val (h, m) = initial.split(":").map { it.toInt() }
         TimePickerDialog(
             context,
@@ -81,25 +84,25 @@ fun HomeScreen(
 
     LaunchedEffect(timePickerField) {
         when (timePickerField) {
-            "start" -> showTimePicker(start) {
+            "start" -> showTimePicker() {
                 start = it
                 interval.start = it
                 viewModel.insertInterval(interval)
             }
 
-            "breakStart" -> showTimePicker(breakStart) {
+            "breakStart" -> showTimePicker() {
                 breakStart = it
                 interval.breakStart = it
                 viewModel.insertInterval(interval)
             }
 
-            "breakEnd" -> showTimePicker(breakEnd) {
+            "breakEnd" -> showTimePicker() {
                 breakEnd = it
                 interval.breakEnd = it
                 viewModel.insertInterval(interval)
             }
 
-            "end" -> showTimePicker(end) {
+            "end" -> showTimePicker() {
                 end = it
                 interval.end = it
                 viewModel.insertInterval(interval)

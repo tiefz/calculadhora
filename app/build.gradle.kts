@@ -63,4 +63,5 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     kapt(libs.androidx.room.compiler)
     implementation(libs.koin.android)
+    implementation(libs.play.services.location)
 }
